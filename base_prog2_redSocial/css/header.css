@@ -1,0 +1,54 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+/* FONTS */
+
+
+header{
+    height: 55px;
+    padding-top: 10px;
+}
+header section{
+    height: 100%;
+}
+header section nav{
+    height: 100%;
+}
+header nav ul li a,
+header a{
+    color: white;
+}
+header nav ul li a:hover,
+header a:hover{
+    color: lightsteelblue;
+    text-decoration: none;
+}
+.logo{
+    margin: 0px;
+}
+.logo a{
+    font-family: 'Fjalla One', sans-serif;
+    color: white;
+}
+.logo a:hover {
+    text-decoration: none;
+    color: white;
+}
+header ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+header div.uk-navbar-center ul li{
+    padding: 0 10px;
+    border-right: 1px solid white;
+}
+header .uk-navbar-right a{
+    margin-right: 15px;
+}
+
+header div.uk-navbar-center ul li:nth-last-child(1){
+    border-right: none;
+}
+header nav form input, header nav form ::placeholder, header nav form span{
+    color: white !important;
+}
