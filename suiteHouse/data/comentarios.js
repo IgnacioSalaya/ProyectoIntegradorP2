@@ -1,36 +1,40 @@
-const usuario = require('./usuarios')
-
-const usuarioComentario = [
+const comentarios = [
     {
-        usuario: usuario[0].usuario,
-        fotoDePerfil: usuario[0].fotoDePerfil,
-        id: 0,
-        comentario: 'Este es un comentario x'
+        id: `1`,
+        usuarioId: `1`,
+        posteoId: `2`,
+        comentario: `Este es un comentario que comenta algo`
     },
     {
-        usuario: usuario[1].usuario,
-        fotoDePerfil: usuario[1].fotoDePerfil,
-        id: 1,
-        comentario: 'En este comentario tu crush te dice que sos lindo'
+        id: `2`,
+        usuarioId: `5`,
+        posteoId: `1`,
+        comentario: `Este es un comentario que comenta algo`
     },
     {
-        usuario: usuario[2].usuario,
-        fotoDePerfil: usuario[2].fotoDePerfil,
-        id: 2,
-        comentario: 'En este otro, tu tía Marta te dice que sos el más lindo de la familia'
+        id: `3`,
+        usuarioId: `5`,
+        posteoId: `5`,
+        comentario: `Este es un comentario que comenta algo`
     },
     {
-        usuario: usuario[3].usuario,
-        fotoDePerfil: usuario[3].fotoDePerfil,
-        id: 3,
-        comentario: 'Tu amigo te pone corazoncitos'
+        id: `4`,
+        usuarioId: `4`,
+        posteoId: `3`,
+        comentario: `Este es un comentario que comenta algo`
     },
     {
-        usuario: usuario[4].usuario,
-        fotoDePerfil: usuario[4].fotoDePerfil,
-        id: 4,
-        comentario: 'Este es el comentario no tiene ningún sentido'
+        id: `5`,
+        usuarioId: `5`,
+        posteoId: `4`,
+        comentario: `Este es un comentario que comenta algo`
+    },
+    {
+        id: `6`,
+        usuarioId: `3`,
+        posteoId: `2`,
+        comentario: `Este es un comentario que comenta algo`
     }
 ]
 
-module.exports = usuarioComentario
+module.exports = comentarios;

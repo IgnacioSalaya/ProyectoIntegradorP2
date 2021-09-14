@@ -1,24 +1,39 @@
-const usuario = [
+const usuarios = [
     {
-        usuario: 'Usuario1',
-        fotoDePerfil: 'https://via.placeholder.com/40'
+        id: `1`,
+        nickname: 'Usuario1', // Único por usuario
+        nombre: `Usuario`,
+        apellido: `Uno`,
+        fotoDePerfil: '../public/images/homeProfile.png'
     },
     {
-        usuario: 'Usuario2',
-        fotoDePerfil: 'https://via.placeholder.com/40'
+        id: `2`,
+        nickname: 'Usuario2', // Único por usuario
+        nombre: `Usuario`,
+        apellido: `Dos`,
+        fotoDePerfil: '../public/images/homeProfile.png'
     },
     {
-        usuario: 'Usuario3',
-        fotoDePerfil: 'https://via.placeholder.com/40'
+        id: `3`,
+        nickname: 'Usuario3', // Único por usuario
+        nombre: `Usuario`,
+        apellido: `Tres`,
+        fotoDePerfil: '../public/images/homeProfile.png'
     },
     {
-        usuario: 'Usuario4',
-        fotoDePerfil: 'https://via.placeholder.com/40'
+        id: `4`,
+        nickname: 'Usuario4', // Único por usuario
+        nombre: `Usuario`,
+        apellido: `Cuatro`,
+        fotoDePerfil: '../public/images/homeProfile.png'
     },
     {
-        usuario: 'Usuario5',
-        fotoDePerfil: 'https://via.placeholder.com/40'
+        id: `5`,
+        nickname: 'Usuario5', // Único por usuario
+        nombre: `Usuario`,
+        apellido: `Cinco`,
+        fotoDePerfil: '../public/images/homeProfile.png'
     }
 ]
 
-module.exports = usuario
+module.exports = usuarios;

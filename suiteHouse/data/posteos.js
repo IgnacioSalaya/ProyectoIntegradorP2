@@ -1,24 +1,34 @@
-const posteo = [
+const posteos = [
     {
-        foto: 'images/_posteo.png',
-        pieDeFoto: 'Este es un pie de foto muy largo. Me sirve para ver si el texto está truncado'
+        id: `1`,
+        usuarioId: `1`, // Autor
+        foto: `../public/images/suiteHome.png`,
+        pieDeFoto: `Este es un pie de foto muy largo. Me sirve para ver si el texto está truncado`
     },
     {
-        foto: 'images/_posteo.png',
-        pieDeFoto: 'Este es el segundo pie de foto que pongo'
+        id: `2`,
+        usuarioId: `2`,
+        foto: `../public/images/suiteHome.png`,
+        pieDeFoto: `Este es un pie de foto muy largo. Me sirve para ver si el texto está truncado`
     },
     {
-        foto: 'images/_posteo.png',
-        pieDeFoto: 'Este es el tercer pie de foto que pongo'
+        id: `3`,
+        usuarioId: `2`,
+        foto: `../public/images/suiteHome.png`,
+        pieDeFoto: `Este es un pie de foto muy largo. Me sirve para ver si el texto está truncado`
     },
     {
-        foto: 'images/_posteo.png',
-        pieDeFoto: 'Este es el cuarto pie de foto que pongo'
+        id: `4`,
+        usuarioId: `3`,
+        foto: `../public/images/suiteHome.png`,
+        pieDeFoto: `Este es un pie de foto muy largo. Me sirve para ver si el texto está truncado`
     },
     {
-        foto: 'images/_posteo.png',
-        pieDeFoto: 'Este es el quinto pie de foto que pongo'
+        id: `5`,
+        usuarioId: `4`,
+        foto: `../public/images/suiteHome.png`,
+        pieDeFoto: `Este es un pie de foto muy largo. Me sirve para ver si el texto está truncado`
     }
 ]
 
-module.exports = posteo
+module.exports = posteos;
