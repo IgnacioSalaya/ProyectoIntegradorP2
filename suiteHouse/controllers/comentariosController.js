@@ -2,7 +2,7 @@ const posteos = require('../data/posteos');
 const comentarios = require('../data/comentarios');
 const usuarios = require('../data/usuarios');
 
-const posteosController = {
+const comentariosController = {
     comentariosPorPosteo : function (req,res) {
         let id = req.params.id; // ID del posteo *corregir "req.params.id" por el método de entrada
         let resultado = ``;
@@ -27,4 +27,4 @@ const posteosController = {
     }
 }
 
-module.exports = posteosController;
+module.exports = comentariosController;

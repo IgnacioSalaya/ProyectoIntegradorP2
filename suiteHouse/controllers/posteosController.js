@@ -33,7 +33,8 @@ const posteosController = {
                 }
             }
         }
-    }
-}
+    },
 
+}
+// Falta usar res.render('nombreArchivoVista', {objetoLiteral: propiedadUno, propiedadDos,}) para renderizarla
 module.exports = posteosController;
