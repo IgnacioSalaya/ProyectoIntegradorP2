@@ -1,11 +1,117 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<%- include('./partials/_head') %>
+<!-- HEAD requiere de la variable "style", la cual nos dice que archivo tomar para aplicar los estilos css
+podemos ver esta variable en ./partials/_head.ejs -->
+
+<body>
+
+  <% if (logeado) { %>
+  <!-- "logueado" es la variable que nos muestra el encabezado de "usuario logueado" o no -->
+  <%- include('./partials/_headerLogueado')%>
+  <% } else { %>
+  <%- include('./partials/_headerDeslogueado')%>
+  <% } %>
+
+  <main>
+    <div class="uk-section uk-section-small">
+      <div class="uk-container uk-container-large uk-flex">
+        <section id="posts"
+          class="uk-flex uk-flex-middle uk-flex-center uk-flex-column uk-child-width-1-2 uk-width-1-1">
+
+          <% if (usuario.length > 0) { %>
+          <!-- usuario es un array que contiene objetos, y estos objetos estan definidos por 
+          las siguentes propiedades: 
+          - fotoDePerfil
+          - usuario 
+          -->
+          <% for(let i = 0; i < usuario.length; i++) { %>
+          <article class="post uk-card-default uk-flex uk-flex-column">
+            <div class="info-usuario uk-flex ">
+
+              <div>
+                <img src="<%= usuario[i].fotoDePerfil %>" alt="">
+                <!--foto perfil-->
+              </div>
+              <h4><a href=""><%= usuario[i].usuario %></a></h4>
+              <!--detalle usuario--><!-- Falta definir rutas -->
+
+            </div>
+            <div class="post-body uk-flex uk-flex-center">
+              <a href="">
+                <!--detalle post-->
+                <img src="<%= posteo[i].foto %>" alt="">
+                <!--imagen de post-->
+                <!-- posteo es un array que contiene objetos, y estos objetos estan definidos por 
+                las siguentes propiedades: 
+                - foto
+                - pieDeFoto 
+                -->
+              </a>
+            </div>
+            <div class="post-reacciones">
+              <ul class="post-icons uk-flex uk-flex-between">
+                <li><span class="" uk-icon="icon:heart; ratio: 1.3"></span>
+                </li>
+                <li><span class="" uk-icon="icon:comments; ratio: 1.3"></span>
+                </li>
+              </ul>
+              <div class="post-pie uk-flex">
+                <h5><a href=""><%= usuario[i].usuario %></a></h5>
+                <!--detalle usuario--><!-- Falta definir rutas -->
+                <p><%= posteo[i].pieDeFoto %></p>
+                <!--pie de post-->
+              </div>
+            </div>
+            <div class="post-comentarios">
+              <h6>Comentarios</h6>
+              <ul>
+                <!-- verMas va a funcionar con un script alojado en ./public/scripts -->
+                <% if (verMas === false) { %>
+                <% for (let j = 0; j < 2; j++) { %>
+                <li>
+                  <!--detalle usuario-->
+                  <p><a
+                      href="/detalle-usuario/id/<%= usuarioComentario[j].id %>"><%= usuarioComentario[j].usuario %></a>
+                    <%= usuarioComentario[j].comentario %> </p>
+                  <!--introducir comentario--><!-- Falta definir rutas -->
+                  <!-- usuarioComentario es un array que contiene objetos, y estos objetos estan definidos por 
+                  las siguentes propiedades: 
+                  - id (del comentario)
+                  - usuario
+                  - comentario 
+                  -->
+                </li>
+                <% } %>
+                <a href="">Ver más...</a>
+                <% } %>
+                <% if (verMas === true) { %>
+                <% for (let j = 0; j < usuarioComentario.length; j++) { %>
+                <li>
+                  <!--detalle usuario-->
+                  <p><a
+                      href="/detalle-usuario/id/<%= usuarioComentario[j].id %>"><%= usuarioComentario[j].usuario %></a>
+                    <%= usuarioComentario[j].comentario %> </p>
+                  <!--introducir comentario--><!-- Falta definir rutas -->
+                </li>
+                <% } %>
+                <% } %>
+              </ul>
+            </div>
+          </article>
+          <% } %>
+      </div>
+      <% } else { %>
+      <p></p>
+      <h2>¡Aún no sigues a nadie! :(</h2>
+      <% } %>
+      </section>
+    </div>
+  </main>
+
+  <%- include('./partials/_footer')%>
+
+</body>
+
 </html>

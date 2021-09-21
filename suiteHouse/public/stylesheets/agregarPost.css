@@ -1,0 +1,28 @@
+#caja {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    background: #141419;
+}
+
+#preview {
+    display: none;
+    width: 450px;
+    height: 450px;
+    background: #FFF;
+    overflow: hidden;
+}
+
+#preview img {
+    width: 450px;
+    height: auto;
+}
+
+@supports(object-fit: cover) {
+    #preview img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}

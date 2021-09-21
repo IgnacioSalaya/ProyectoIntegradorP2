@@ -1,0 +1,69 @@
+article.post{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+article.post div.info-usuario{
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 5px;
+}
+article.post div.info-usuario img{
+    border-radius: 50px;
+    padding: 1px;
+    border: 1.5px solid red;
+}
+article.post div.info-usuario h4{
+   margin: 8px 10px;
+}
+
+article.post div.post-body{
+    padding-bottom: 5px;
+    border-bottom: 1px solid lightgray;
+}
+.post-body a{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+article.post div.post-reacciones ul.post-icons{
+    padding-top: 5px;
+    padding-right: 30px;
+    list-style-type: none;
+}
+
+article.post div.post-reacciones div.post-pie{
+    padding-left: 20px;
+    border-bottom: 1px solid lightgray;
+}
+article.post div.post-reacciones div.post-pie h5{
+    margin: 0;
+}
+article.post div.post-reacciones div.post-pie p{
+    margin: 0;
+}
+article.post div.post-comentarios {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+article.post div.post-comentarios h6{
+    margin-bottom: 0;
+}
+article.post div.post-comentarios ul{
+    list-style: none;
+    margin-top: 5px
+}
+article.post div.post-comentarios ul li{
+    display: flex;
+}
+article.post div.post-comentarios ul li a{
+    color: black;
+    font-weight: bolder;
+    text-decoration: none;
+}
+article.post div.post-comentarios ul li p{
+    margin: 0 5px;
+}
+

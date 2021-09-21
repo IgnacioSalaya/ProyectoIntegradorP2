@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/_head') %>
+
+<body>
+    
+    <% if (logeado) { %>
+        <!--LOGUEADO es la variable que nos muestra el encabezado de "usuario logueado" o no-->
+        <%- include('./partials/_headerLogueado')%>
+    <% } else { %>
+        <%- include('./partials/_headerDeslogueado')%>
+    <% } %>
+
+    <main>
+
+        <!-- este es el action del form registrarse -->
+
+        <div class="uk-section uk-section-small">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+                <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+                    <div class="uk-card-primary uk-card-badge uk-card-label">@<%= nuevoUsuario.username %></div>
+                    <!-- nuevoUsuario es el objeto que se crea al registrarse y tiene la propiedad username -->
+                    <h3>Bienvenid@</h3>
+                    <p>¡Tu usuario fue registrado con éxito! Ahora es momento de comenzar a usar nuestra app.</p>
+                    <div class="uk-card uk-card-footer"><a href="/">Ir al inicio</a></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <%- include('./partials/_footer') %> 
+
+</body>
+
+</html>

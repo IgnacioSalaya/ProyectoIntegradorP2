@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<%- include('./partials/_head') %> 
+
+<body>
+    
+    <% if (logueado) { %>
+        <%- include('./partials/_headerLogueado') %>
+    <% } else { %> 
+        <%- include('./partials/_headerDeslogueado') %> 
+    <% } %>
+    
+    <main>
+        
+        <div class="uk-section uk-section-small">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+                <form action="" method="post">
+                    <div class="uk-card uk-card-default uk-card-body uk-width-3-3@m">
+    
+                        <div class="uk-margin">
+                            <div class="uk-column">
+                                <div id="cargaImg" uk-form-custom="target: true">
+                                    <input type="file" id="file" accept="image/png, .jpeg, .jpg, video/mp4, .mov, .avi"
+                                        required>
+                                    <input class="uk-input uk-width-large" type="text"
+                                        placeholder="Seleccione una foto desde su ordenador" disabled>
+                                </div>
+                                <div id="caja"
+                                    class="uk-container uk-container-small uk-flex uk-flex-middle uk-flex-center">
+                                    <div id="preview"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-stacked-text">Pie de foto</label>
+                            <div class="uk-column">
+                                <input class="uk-input uk-width-large" type="text" placeholder="Pie de foto" required>
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+                            <div class="uk-controls uk-flex uk-flex-around">
+                                <button id="borrar" class="uk-button uk-button-danger uk-width-small" type="reset"><span
+                                        uk-icon="trash"></span></button>
+                                <button class="uk-button uk-button-primary uk-width-small">Postear<span
+                                        uk-icon="chevron-right"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+    </main>
+
+<%- include('./partials/_footer') %> 
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/_head') %>
+
+<body>
+
+    <% if (logeado) { %>
+        <!--LOGUEADO es la variable que nos muestra el encabezado de "usuario logueado" o no-->
+        <%- include('./partials/_headerLogueado')%>
+    <% } else { %>
+        <%- include('./partials/_headerDeslogueado')%>
+    <% } %>
+
+    <main>
+        <div class="uk-section uk-section-small">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+                <form action="" method="post">
+                    <div class="uk-card uk-card-default uk-card-body uk-width-2-2@m">
+                        <div class="uk-margin">
+                            <div class="uk-inline">
+                                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                <input class="uk-input uk-width-medium" type="text" placeholder="Username">
+                            </div>
+                        </div>
+                    
+                        <div class="uk-margin">
+                            <div class="uk-inline">
+                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                                <input class="uk-input uk-width-medium" type="password" placeholder="Password">
+                            </div>
+                            <div class="uk-card uk-card-footer-center"><a href="" class="uk-text-small uk-align-right">Olvidé mi contraseña</a></div>
+                            <!-- falta definir ruta de Olvidé mi contraseña y la vista de ese form -->
+                        </div>
+    
+                        <div class="uk-margin">
+                            <div class="uk-controls">
+                                <button class="uk-button uk-button-primary uk-width-medium">Iniciar sesión <span uk-icon="sign-in"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <%- include('./partials/_footer') %> 
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/_head')%>
+
+<body>
+    
+    <% if (logeado) { %>
+        <!--LOGUEADO es la variable que nos muestra el encabezado de "usuario logueado" o no-->
+        <%- include('./partials/_headerLogueado')%>
+    <% } else { %>
+        <%- include('./partials/_headerDeslogueado')%>
+    <% } %>
+
+    <main>
+        <div class="uk-section uk-section-small">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+                <form action="" method="POST">
+                    
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text">Nombre</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Pablo" required>
+                        </div>
+                    </div>
+                    
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text">Apellido</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Martínez" required>
+                        </div>
+                    </div>
+                    
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text">Nombre de usuario</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input" id="form-stacked-text" type="text" placeholder="pmartinez" required>
+                        </div>
+                    </div>
+                    
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text">Email</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input" id="form-stacked-text" type="email" placeholder="pablomartinez@example.com" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
+                        </div>
+                    </div>
+                    
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text">Contraseña</label><br>
+                        <label class="uk-form-label" for="form-stacked-text" style="color: gray; font-size: small">Entre 8 y 32 caracteres.</label><br>
+                        <label class="uk-form-label" for="form-stacked-text" style="color: gray; font-size: small">Al menos una mayuscula, minuscula y número.</label>
+                        <div class="uk-form-password">
+                            <input class="uk-input" id="form-stacked-password" type="password" minlength="8" maxlength="32" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+                        </div>
+                    </div>
+                    
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text">Fecha de nacimiento</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input uk-width-large" id="form-stacked-text" type="date" style="display:flex; align-items: center;" required>
+                        </div>
+                    </div>
+
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text">Foto de perfil</label>
+                        <div class="uk-form-controls">
+                            <div uk-form-custom="target: true">
+                                <input type="file" accept="image/png, .jpeg, .jpg, image/gif" required>
+                                <input class="uk-input " type="text" placeholder="Seleccione una foto desde su ordenador" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="uk-margin">
+                        <div class="uk-form-controls uk-flex uk-flex-around">
+                            <button class="uk-button uk-button-danger uk-width-1-4" type="reset"><span uk-icon="trash"></span></button>
+                            <button class="uk-button uk-button-primary uk-width-3-4">registrarme</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <%- include('./partials/_footer') %>
+
+</body>
+
+</html>

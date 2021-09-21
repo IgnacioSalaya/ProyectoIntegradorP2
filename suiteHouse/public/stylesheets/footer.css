@@ -1,0 +1,13 @@
+footer{
+    height: 40px;
+    color: white;
+    padding: 0 10px;
+}
+
+footer ul{
+    list-style: none;
+}
+
+footer ul li{
+    margin-top: 0;
+}
