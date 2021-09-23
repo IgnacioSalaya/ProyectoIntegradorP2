@@ -1,3 +1,5 @@
+const usuarios = require('./usuarios');
+
 const posteos = {
     lista: [
         {
@@ -41,12 +43,22 @@ const posteos = {
             }
         }
     },
-    funPorID : function (id) { // Entrega posteo por su ID
+    funPorId : function (id) { // Entrega posteo por su ID
         let resultado = '';
         if ((id > 0) && (id <= posteos.lista.length )) { // Verifica que la ID exista
             for (let index = 0; index < posteos.lista.length; index++) { // Recorre array de lista
                 if (id == posteos.lista[index].id) { // Busca objeto de = ID
                     resultado = posteos.lista[index]; // Entrega el objeto completo
+                }
+            }
+        }
+    },
+    funPorUsuarioId : function (usuarioId) { // Entrega posteo según ID de usuario
+        let resultado = [];
+        if ((usuarioId > 0) && (usuarioId <= usuarios.lista.length )) { // Verifica que la ID del usuario exista
+            for (let index = 0; index < posteos.lista.length; index++) { // Recorre array de lista
+                if (usuarioId == posteos.lista[index].usuarioId) { // Busca objeto de = ID
+                    resultado.push(posteos.lista[index]); // Agrega el objeto completo
                 }
             }
         }
