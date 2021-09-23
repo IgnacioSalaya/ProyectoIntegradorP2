@@ -1,40 +1,15 @@
 const posteos = require('../data/posteos');
+const usuarios = require('../data/usuarios');
+const comentarios = require('../data/comentarios');
 
 const posteosController = {
-    usuarioId : function (req,res) {
-        let id = req.params.id; // ID del posteo
-        let resultado = ``;
-        if ((id > 0) && (id <= posteos.length)) { // Verifica la ID
-            for (let index = 0; index < posteos.length; index++) { // Recorre array
-                if (id == posteos[index].id) { // Busca objeto de = ID
-                    resultado = posteos[index].usuarioId; // Entrega dato buscado        
-                }
-            }
-        }
-    },
-    foto : function (req,res) {
-        let id = req.params.id; // ID del posteo
-        let resultado = ``;
-        if ((id > 0) && (id <= posteos.length)) { // Verifica la ID
-            for (let index = 0; index < posteos.length; index++) { // Recorre array
-                if (id == posteos[index].id) { // Busca objeto de = ID
-                    resultado = posteos[index].foto; // Entrega dato buscado 
-                }
-            }
-        }
-    },
-    pieDeFoto : function (req,res) {
-        let id = req.params.id; // ID del posteo
-        let resultado = ``;
-        if ((id > 0) && (id <= posteos.length)) { // Verifica la ID
-            for (let index = 0; index < posteos.length; index++) { // Recorre array
-                if (id == posteos[index].id) { // Busca objeto de = ID
-                    resultado = posteos[index].pieDeFoto; // Entrega dato buscado 
-                }
-            }
-        }
-    },
-
+    vistaIndex : (req,res) => {
+        res.render('index',{
+            posteos: posteos,
+            usuarios: usuarios.funPorID, // Para usar funPorID --> Busca un usuario por su ID (en posteo da el ID del usuario)
+            comentarios: comentarios.funPorPosteoId, // Para usar funPorPosteoId --> Busca uno o más comentarios por ID del posteo (en posteo da su ID)
+        })
+    }
 }
 // Falta usar res.render('nombreArchivoVista', {objetoLiteral: propiedadUno, propiedadDos,}) para renderizarla
 module.exports = posteosController;
