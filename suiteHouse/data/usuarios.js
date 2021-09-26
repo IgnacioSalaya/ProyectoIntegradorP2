@@ -2,38 +2,63 @@ const usuarios = {
     lista: [
         {
             id: 1,
+            mail: 'usuario@gmail.com',
+            contraseña: 'contraseña123',
+            fechaNacimiento: '01/01/2000',
             usuario: 'Usuario1', // Único por usuario
             nombre: 'Usuario', // Arreglar comillas
             apellido: 'Uno',
-            fotoDePerfil: 'homeProfile.png'
+            fotoDePerfil: 'homeProfile.png',
+            seguidores: 501,
+            seguidos: 105
         },
         {
             id: 2,
+            mail: 'usuario@gmail.com',
+            contraseña: 'contraseña123',
+            fechaNacimiento: '01/01/2000',
             usuario: 'Usuario2', // Único por usuario
             nombre: 'Usuario',
             apellido: 'Dos',
-            fotoDePerfil: 'homeProfile.png'
+            fotoDePerfil: 'homeProfile.png',
+            seguidores: 501,
+            seguidos: 105
         },
         {
             id: 3,
+            mail: 'usuario@gmail.com',
+            contraseña: 'contraseña123',
+            fechaNacimiento: '01/01/2000',
             usuario: 'Usuario3', // Único por usuario
             nombre: 'Usuario',
             apellido: 'Tres',
-            fotoDePerfil: 'homeProfile.png'
+            fotoDePerfil: 'homeProfile.png',
+            seguidores: 501,
+            seguidos: 105
         },
         {
             id: 4,
+            mail: 'usuario@gmail.com',
+            contraseña: 'contraseña123',
+            fechaNacimiento: '01/01/2000',
             usuario: 'Usuario4', // Único por usuario
             nombre: 'Usuario',
             apellido: 'Cuatro',
-            fotoDePerfil: 'homeProfile.png'
+            fotoDePerfil: 'homeProfile.png',
+            seguidores: 501,
+            seguidos: 105
         },
         {
             id: 5,
+            mail: 'usuario@gmail.com',
+            contraseña: 'contraseña123',
+            fechaNacimiento: '01/01/2000',
             usuario: 'Usuario5', // Único por usuario
             nombre: 'Usuario',
             apellido: 'Cinco',
-            fotoDePerfil: 'homeProfile.png'
+            fotoDePerfil: 'homeProfile.png',
+            seguidores: 501,
+            seguidos: 105
         }
     ],
     funIndex : function (position) { // Entrega usuario según la posición en el array
