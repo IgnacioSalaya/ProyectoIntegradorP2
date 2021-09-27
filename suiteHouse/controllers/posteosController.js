@@ -6,9 +6,9 @@ const posteosController = {
     vistaIndex : (req,res) => {
         res.render('index',{
             style: 'index',
-            posteos: posteos.lista, // Un array con objetos literales que contienen la información de cada posteo
-            usuarios: usuarios.lista, // Un array con objetos literales que contienen la información de cada usuario
-            comentarios: comentarios.lista, // Un array con objetos literales que contienen la información de cada comentario
+            posteos: posteos.lista, // Array con objetos que contienen la información de cada posteo
+            usuarios: usuarios.lista, // Array con objetos que contienen la información de cada comentario
+            comentarios: comentarios.lista, // Array con objetos que contienen la información de cada usuario
         })
     },
     vistaDetallePost : (req,res) =>{
@@ -17,9 +17,9 @@ const posteosController = {
 
         res.render('detallePost',{
             style: 'detallePost',
-            posteo: posteo, // Objeto con información del posteo
-            usuario: usuarios.lista, // Objeto con información del usuario autor
-            comentarios: comentarios.lista, // Array con objetos que contienen la información de los comentarios
+            posteo: posteo, // Objeto con información del posteo específico
+            usuario: usuarios.lista, // Array con objetos que contienen la información de cada usuario
+            comentarios: comentarios.lista, // Array con objetos que contienen la información de cada comentario
         })
     }
 }

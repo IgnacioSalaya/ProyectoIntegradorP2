@@ -285,7 +285,7 @@ const comentarios = {
         }
     ],
     funIndex : function (position) { // Entrega comentario según la posición en el array
-        let resultado = '';
+        let resultado;
         if ((position >= 0) && (position < comentarios.lista.length )) { // Verifica que la posición exista
             for (let index = 0; index < comentarios.lista.length; index++) { // Recorre array de lista
                 if (position == index) { // Busca objeto de = ID
@@ -293,6 +293,7 @@ const comentarios = {
                 }
             }
         }
+        return resultado;
     },
     funPorPosteoId : function (posteoId) { // Entrega un array con los comentarios según ID del posteo
         let resultado = [];
@@ -303,6 +304,7 @@ const comentarios = {
                 }
             }
         }
+        return resultado;
     },
     funPorUsuarioId : function (usuarioId) { // Entrega un array con los comentarios según ID del usuario
         let resultado = [];
@@ -313,6 +315,7 @@ const comentarios = {
                 }
             }
         }
+        return resultado;
     }
 }
 

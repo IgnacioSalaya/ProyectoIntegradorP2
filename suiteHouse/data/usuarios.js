@@ -122,7 +122,7 @@ const usuarios = {
         }
     ],
     funIndex : function (position) { // Entrega usuario según la posición en el array
-        let resultado = '';
+        let resultado;
         if ((position >= 0) && (position < usuarios.lista.length )) { // Verifica que la posición exista
             for (let index = 0; index < usuarios.lista.length; index++) { // Recorre array de lista
                 if (position == index) { // Busca objeto de = ID
@@ -130,6 +130,7 @@ const usuarios = {
                 }
             }
         }
+        return resultado;
     },
     funPorId : function (id) { // Entrega usuario por su ID
         let resultado;

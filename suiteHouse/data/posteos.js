@@ -74,7 +74,7 @@ const posteos = {
         }
     ],
     funIndex : function (position) { // Entrega posteo según la posición en el array
-        let resultado
+        let resultado;
         if ((position >= 0) && (position < posteos.lista.length )) { // Verifica que la posición exista
             for (let index = 0; index < posteos.lista.length; index++) { // Recorre array de lista
                 if (position == index) { // Busca objeto de = ID
@@ -82,6 +82,7 @@ const posteos = {
                 }
             }
         }
+        return resultado;
     },
     funPorId : function (id) { // Entrega posteo por su ID
         let resultado;
