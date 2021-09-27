@@ -29,6 +29,7 @@ const posteosController = {
         }
 
         res.render('detallePost',{
+            style: 'detallePost',
             posteo: posteo, // Objeto con información del posteo
             usuario: usuarioAutor, // Objeto con información del usuario autor
             comentarios: comentariosPosteo, // Array con objetos que contienen la información de los comentarios

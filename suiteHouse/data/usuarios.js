@@ -71,7 +71,7 @@ const usuarios = {
             }
         }
     },
-    funPorID : function (id) { // Entrega usuario por su ID
+    funPorId : function (id) { // Entrega usuario por su ID
         let resultado = '';
         if ((id > 0) && (id <= usuarios.lista.length )) { // Verifica que la ID exista
             for (let index = 0; index < usuarios.lista.length; index++) { // Recorre array de lista
