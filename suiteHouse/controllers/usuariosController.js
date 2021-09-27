@@ -4,23 +4,51 @@ const comentarios = require('../data/comentarios'); // En las vistas (detalleUsu
 
 const usuariosController = {
     vistaDetalleUsuario : (req,res) =>{
-        // Vista usa --> Usuario específico, foto de perfil, posteos, seguidores y seguidos (poner con string),
+        let usuario = usuarios.funPorId(req.params.id); // Entrega un objeto literal con la información del posteo, busca = ID de la ruta
+        let posteosUsuario = [];
+        let comentariosUsuario = [];
+
+        for (let index = 0; index < posteos.length; index++) { // Recorre array de posteos
+            if (usuario.id == posteos.lista[index].usuarioId) { // Cuando encuentra un posteo creado por el usuario (según ID del usuario):
+                posteosUsuario.push(posteos.lista[index]);      // Entrega un objeto con la indormación del posteo
+            }
+        }
+        
+        for (let index = 0; index < comentarios.length; index++) { // Recorre array de comentarios
+            if (usuario.id == comentarios.lista[index].usuarioId) { // Cuando encuentra un comentario con = ID al usuario:
+                comentariosUsuario.push(comentarios.lista[index]); // Entrega un objeto con la indormación del usuario
+            }
+        }
+
         res.render('detalleUsuario',{
-            usuarios: usuarios.funPorID, // Para usar funPorID dar ID del usuario --> Entrega toda la información de un usuario específico 
-            posteos: posteos.funPorUsuarioId, // Para usar funPorUsuarioId dar ID del usuario --> Busca uno o más posteos por ID del usuario (en usuarios da su ID)
-            comentarios: comentarios.funPorUsuarioId, // Para usar funPorUsuarioId dar ID del usuario --> Busca uno o más comentarios por ID del usuario (en usuarios da su ID)
-            seguidores: 578,
-            seguidos: 356
+            style: 'detalleUsuario',
+            usuario: usuario, // Objeto con información del usuario
+            posteos: posteosUsuario, // Array con objetos que contienen la información de los posteos
+            comentarios: comentariosUsuario, // Array con objetos que contienen la información de los comentarios
         })
     },
     vistaMiPerfil : (req,res) =>{
-        // Vista usa --> usuario específico, 
+        let usuario = usuarios.funPorId(req.params.id); // Entrega un objeto literal con la información del posteo, busca = ID de la ruta
+        let posteosUsuario = [];
+        let comentariosUsuario = [];
+
+        for (let index = 0; index < posteos.length; index++) { // Recorre array de posteos
+            if (usuario.id == posteos.lista[index].usuarioId) { // Cuando encuentra un posteo creado por el usuario (según ID del usuario):
+                posteosUsuario.push(posteos.lista[index]);      // Entrega un objeto con la indormación del posteo
+            }
+        }
+        
+        for (let index = 0; index < comentarios.length; index++) { // Recorre array de comentarios
+            if (usuario.id == comentarios.lista[index].usuarioId) { // Cuando encuentra un comentario con = ID al usuario:
+                comentariosUsuario.push(comentarios.lista[index]); // Entrega un objeto con la indormación del usuario
+            }
+        }
+
         res.render('miPerfil',{
-            usuarios: usuarios.funPorID, // Para usar funPorID dar ID del usuario --> Entrega toda la información de un usuario específico 
-            posteos: posteos.funPorUsuarioId, // Para usar funPorUsuarioId dar ID del usuario --> Busca uno o más posteos por ID del usuario (en usuarios da su ID)
-            comentarios: comentarios.funPorUsuarioId, // Para usar funPorUsuarioId dar ID del usuario --> Busca uno o más comentarios por ID del usuario (en usuarios da su ID)
-            seguidores: 951,
-            seguidos: 322
+            style: 'miPerfil',
+            usuario: usuario, // Objeto con información del usuario
+            posteos: posteosUsuario, // Array con objetos que contienen la información de los posteos
+            comentarios: comentariosUsuario, // Array con objetos que contienen la información de los comentarios
         })
     }
 }

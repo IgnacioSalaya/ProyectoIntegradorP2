@@ -59,6 +59,66 @@ const usuarios = {
             fotoDePerfil: 'homeProfile.png',
             seguidores: 501,
             seguidos: 105
+        },
+        {
+            id: 6,
+            mail: 'usuario@gmail.com',
+            contraseña: 'contraseña123',
+            fechaNacimiento: '01/01/2000',
+            usuario: 'Usuario5', // Único por usuario
+            nombre: 'Usuario',
+            apellido: 'Cinco',
+            fotoDePerfil: 'homeProfile.png',
+            seguidores: 501,
+            seguidos: 105
+        },
+        {
+            id: 7,
+            mail: 'usuario@gmail.com',
+            contraseña: 'contraseña123',
+            fechaNacimiento: '01/01/2000',
+            usuario: 'Usuario5', // Único por usuario
+            nombre: 'Usuario',
+            apellido: 'Cinco',
+            fotoDePerfil: 'homeProfile.png',
+            seguidores: 501,
+            seguidos: 105
+        },
+        {
+            id: 8,
+            mail: 'usuario@gmail.com',
+            contraseña: 'contraseña123',
+            fechaNacimiento: '01/01/2000',
+            usuario: 'Usuario5', // Único por usuario
+            nombre: 'Usuario',
+            apellido: 'Cinco',
+            fotoDePerfil: 'homeProfile.png',
+            seguidores: 501,
+            seguidos: 105
+        },
+        {
+            id: 9,
+            mail: 'usuario@gmail.com',
+            contraseña: 'contraseña123',
+            fechaNacimiento: '01/01/2000',
+            usuario: 'Usuario5', // Único por usuario
+            nombre: 'Usuario',
+            apellido: 'Cinco',
+            fotoDePerfil: 'homeProfile.png',
+            seguidores: 501,
+            seguidos: 105
+        },
+        {
+            id: 10,
+            mail: 'usuario@gmail.com',
+            contraseña: 'contraseña123',
+            fechaNacimiento: '01/01/2000',
+            usuario: 'Usuario5', // Único por usuario
+            nombre: 'Usuario',
+            apellido: 'Cinco',
+            fotoDePerfil: 'homeProfile.png',
+            seguidores: 501,
+            seguidos: 105
         }
     ],
     funIndex : function (position) { // Entrega usuario según la posición en el array
@@ -71,7 +131,7 @@ const usuarios = {
             }
         }
     },
-    funPorID : function (id) { // Entrega usuario por su ID
+    funPorId : function (id) { // Entrega usuario por su ID
         let resultado = '';
         if ((id > 0) && (id <= usuarios.lista.length )) { // Verifica que la ID exista
             for (let index = 0; index < usuarios.lista.length; index++) { // Recorre array de lista
