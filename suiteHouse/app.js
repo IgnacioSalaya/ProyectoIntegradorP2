@@ -9,6 +9,10 @@ var usersRouter = require('./routes/users');
 var detallePostRouter = require('./routes/detallePost');
 var agregarPostRouter = require('./routes/agregarPost');
 var detalleUsuarioRouter = require('./routes/detalleUsuario');
+var editarPerfilRouter = require('./routes/editarPerfil');
+var loginRouter = require('./routes/login')
+var miPerfilRouter = require('./routes/miPerfil')
+var registrarseRouter = require('./routes/registrarse')
 
 var app = express();
 
@@ -26,7 +30,11 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/detallePost', detallePostRouter);
 app.use('/agregarPost', agregarPostRouter);
-app.use('/detalleUsuario', detalleUsuarioRouter)
+app.use('/detalleUsuario', detalleUsuarioRouter);
+app.use('/editarPerfil', editarPerfilRouter);
+app.use('/login', loginRouter)
+app.use('/miPerfil', miPerfilRouter)
+app.use('/registrarse', registrarseRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
