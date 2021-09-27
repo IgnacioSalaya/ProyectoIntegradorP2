@@ -84,7 +84,7 @@ const posteos = {
         }
     },
     funPorId : function (id) { // Entrega posteo por su ID
-        let resultado
+        let resultado;
         if ((id > 0) && (id <= posteos.lista.length )) { // Verifica que la ID exista
             for (let index = 0; index < posteos.lista.length; index++) { // Recorre array de lista
                 if (id == posteos.lista[index].id) { // Busca objeto de = ID
@@ -92,6 +92,7 @@ const posteos = {
                 }
             }
         }
+        return resultado;
     },
     funPorUsuarioId : function (usuarioId) { // Entrega posteo según ID de usuario
         let resultado = [];
@@ -102,6 +103,7 @@ const posteos = {
                 }
             }
         }
+        return resultado;
     }
 }
 

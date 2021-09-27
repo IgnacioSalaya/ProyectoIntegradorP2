@@ -12,27 +12,14 @@ const posteosController = {
         })
     },
     vistaDetallePost : (req,res) =>{
-        let posteo = posteos.funPorId(req.params.id); // Entrega un objeto literal con la información del posteo, busca = ID de la ruta
-        let usuarioAutor;
-        let comentariosPosteo = [];
-
-        for (let index = 0; index < usuarios.length; index++) { // Recorre array de usuarios
-            if (posteo.usuarioId == usuarios.lista[index].id) { // Cuando encuentra un usuario con = ID al autor del posteo:
-                usuarioAutor = usuarios.lista[index];           // Entrega un objeto con la indormación del usuario
-            }
-        }
-        
-        for (let index = 0; index < comentarios.length; index++) { // Recorre array de comentarios
-            if (posteo.id == comentarios.lista[index].posteoId) { // Cuando encuentra un comentario con = ID al posteo:
-                comentariosPosteo.push(comentarios.lista[index]); // Entrega un objeto con la indormación del usuario
-            }
-        }
+        let id = req.params.id
+        let posteo = posteos.funPorId(id); // Entrega un objeto literal con la información del posteo, busca = ID de la ruta
 
         res.render('detallePost',{
             style: 'detallePost',
             posteo: posteo, // Objeto con información del posteo
-            usuario: usuarioAutor, // Objeto con información del usuario autor
-            comentarios: comentariosPosteo, // Array con objetos que contienen la información de los comentarios
+            usuario: usuarios.lista, // Objeto con información del usuario autor
+            comentarios: comentarios.lista, // Array con objetos que contienen la información de los comentarios
         })
     }
 }
