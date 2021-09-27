@@ -1,17 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <%- include('./partials/_head') %>
-
 <body>
-    
-    <% if (logueado) { %>
     <%- include('./partials/_headerLogueado') %>
-    <% } else { %>
-    <%- include('./partials/_headerDeslogueado') %>        
-    <% } %>
-
-    <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-small">
                 <section class="info-usuario uk-flex uk-flex-around uk-width-1-1">
@@ -26,7 +17,7 @@
                         </div>
                         <div>
                             <ul class="red-usuario uk-flex uk-flex-between uk-width-1-2">
-                                <li><%= posteo.length %> posts</li>
+                                <li><%= posteos.length %> posts</li>
                                 <li><%= seguidor %> seguidores</li>
                                 <li><%= seguido %> seguidos</li>
                                 <!-- seguido y seguidor son strings o num -->
@@ -35,26 +26,20 @@
                     </div>
 
                 </section>
-
                 <section class="muro uk-flex uk-flex-middle uk-flex-center">
                     <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
-                        <% for(let i = 0; i < posteo.length; i++) { %>
+                    <% for(let i = 0; i < posteos.length; i++) { %>
                         <div class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                            <a href="/detallePost/<%= posteo[i].id %>" class="link-detalle">
-                                <img src="<%= posteo[i].foto%>" alt="foto de perfil" class="foto-perfil">
+                            <a href="/detallePost/<%= posteos[i].id %>" class="link-detalle">
+                                <img src="<%= posteos[i].foto%>" alt="foto de perfil" class="foto-perfil">
                                 <!-- <p class="uk-text-center">Lorem ipsum</p> -->
                                 <!-- falta definir rutas -->
                             </a>
                         </div>
-                        <% } %>
-                    </div>
-                </section>
-            </div>
+                    <% } %>
+                </div>
+            </section>
         </div>
-    </main>
-
-    <%- include('./partials/_footer')%> 
-
+    </div>
 </body>
-
 </html>

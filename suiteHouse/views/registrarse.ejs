@@ -4,16 +4,8 @@
 <%- include('./partials/_head')%>
 
 <body>
-    
-    <% if (logeado) { %>
-        <!--LOGUEADO es la variable que nos muestra el encabezado de "usuario logueado" o no-->
-        <%- include('./partials/_headerLogueado')%>
-    <% } else { %>
-        <%- include('./partials/_headerDeslogueado')%>
-    <% } %>
-
-    <main>
-        <div class="uk-section uk-section-small">
+    <%- include('./partials/_headerDeslogueado')%>
+    <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 <form action="" method="POST">
                     
@@ -47,8 +39,8 @@
                     
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-stacked-text">Contraseña</label><br>
-                        <label class="uk-form-label" for="form-stacked-text" style="color: gray; font-size: small">Entre 8 y 32 caracteres.</label><br>
-                        <label class="uk-form-label" for="form-stacked-text" style="color: gray; font-size: small">Al menos una mayuscula, minuscula y número.</label>
+                        <label class="uk-form-label" for="letra-chica">Entre 8 y 32 caracteres.</label><br>
+                        <label class="uk-form-label" for="letra-chica">Al menos una mayuscula, minuscula y número.</label>
                         <div class="uk-form-password">
                             <input class="uk-input" id="form-stacked-password" type="password" minlength="8" maxlength="32" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
                         </div>
@@ -57,7 +49,7 @@
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-stacked-text">Fecha de nacimiento</label>
                         <div class="uk-form-controls">
-                            <input class="uk-input uk-width-large" id="form-stacked-text" type="date" style="display:flex; align-items: center;" required>
+                            <input class="uk-input uk-width-large" id="fecNac" type="date" required>
                         </div>
                     </div>
 
@@ -80,10 +72,6 @@
                 </form>
             </div>
         </div>
-    </main>
-
     <%- include('./partials/_footer') %>
-
 </body>
-
 </html>

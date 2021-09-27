@@ -1,7 +1,13 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+/* font-family: 'Open Sans', sans-serif; */
+/* FONTS */
+
 footer{
     height: 40px;
     color: white;
     padding: 0 10px;
+    background-color: #A68C7C;
 }
 
 footer ul{
@@ -10,4 +16,5 @@ footer ul{
 
 footer ul li{
     margin-top: 0;
+    font-family: 'Open Sans', sans-serif;
 }

@@ -1,0 +1,9 @@
+#letra-chica {
+    color: gray;
+    font-size: small;
+}
+
+#fecNac {
+    display:flex;
+    align-items: center;
+}

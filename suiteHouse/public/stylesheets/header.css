@@ -1,11 +1,17 @@
 /* FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+/* font-family: 'Open Sans', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+/* font-family: 'Cabin', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+/* font-family: 'Prompt', sans-serif; */
 /* FONTS */
 
 
 header{
-    height: 55px;
-    padding-top: 10px;
+    height: auto;
+    padding: 10px;
+    background-color: #A68C7C;
 }
 header section{
     height: 100%;
@@ -16,23 +22,18 @@ header section nav{
 header nav ul li a,
 header a{
     color: white;
+    font-family: 'Prompt', sans-serif;
 }
 header nav ul li a:hover,
 header a:hover{
-    color: lightsteelblue;
+    color: #224A59;
     text-decoration: none;
 }
 .logo{
     margin: 0px;
+    width: 45px;
 }
-.logo a{
-    font-family: 'Fjalla One', sans-serif;
-    color: white;
-}
-.logo a:hover {
-    text-decoration: none;
-    color: white;
-}
+
 header ul{
     margin: 0;
     padding: 0;
@@ -41,9 +42,11 @@ header ul{
 header div.uk-navbar-center ul li{
     padding: 0 10px;
     border-right: 1px solid white;
+    font-family: 'Open Sans', sans-serif;
 }
 header .uk-navbar-right a{
     margin-right: 15px;
+    font-family: 'Prompt', sans-serif;
 }
 
 header div.uk-navbar-center ul li:nth-last-child(1){
@@ -51,4 +54,5 @@ header div.uk-navbar-center ul li:nth-last-child(1){
 }
 header nav form input, header nav form ::placeholder, header nav form span{
     color: white !important;
+    font-family: 'Prompt', sans-serif;
 }

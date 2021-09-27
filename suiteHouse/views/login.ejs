@@ -1,18 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <%- include('./partials/_head') %>
-
 <body>
-
-    <% if (logeado) { %>
-        <!--LOGUEADO es la variable que nos muestra el encabezado de "usuario logueado" o no-->
-        <%- include('./partials/_headerLogueado')%>
-    <% } else { %>
-        <%- include('./partials/_headerDeslogueado')%>
-    <% } %>
-
-    <main>
+    <%- include('./partials/_headerDeslogueado')%>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 <form action="" method="post">
@@ -42,10 +32,6 @@
                 </form>
             </div>
         </div>
-    </main>
-
     <%- include('./partials/_footer') %> 
-
 </body>
-
 </html>

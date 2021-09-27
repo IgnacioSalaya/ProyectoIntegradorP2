@@ -4,15 +4,7 @@
 <%- include('./partials/_head') %> 
 
 <body>
-    
-    <% if (logueado) { %>
-        <%- include('./partials/_headerLogueado') %>
-    <% } else { %> 
-        <%- include('./partials/_headerDeslogueado') %> 
-    <% } %>
-    
-    <main>
-        
+    <%- include('./partials/_headerLogueado') %>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 <form action="" method="post">
@@ -50,11 +42,6 @@
                 </form>
             </div>
         </div>
-    
-    </main>
-
-<%- include('./partials/_footer') %> 
-
+    <%- include('./partials/_footer') %> 
 </body>
-
 </html>

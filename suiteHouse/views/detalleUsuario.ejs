@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <%- include('./partials/_head') %>
-
-    <body>
-        <% if (logueado) { %>
-            <%- include('./partials/_headerLogueado') %>
-        <% } else { %>
-                <%- include('./partials/_headerDeslogueado') %>        
-        <% } %> 
-
-        <main>
+<body>
+    <%- include('./partials/_headerDeslogueado') %>
             <div class="uk-section uk-section-small">
                 <div class="uk-container uk-container-small">
                     <section class="info-usuario uk-flex uk-flex-around uk-width-1-1">
                         <div class="uk-width-1-3 uk-flex uk-flex-center uk-flex-middle">
-                            <img src="<%= usuario.fotoDePerfil %>" alt="foto de perfil" class="foto-perfil">
+                            <img src="images/<%= usuario.fotoDePerfil %>" alt="foto de perfil" class="foto-perfil">
                             <!-- usuario es un objeto que tiene la propiedad fotoDePeril, usuario -->
                         </div>
                         <div class="uk-width-2-3 uk-flex uk-flex-column uk-flex-around">
@@ -25,9 +17,9 @@
                             </div>
                             <div>
                                 <ul class="red-usuario uk-flex uk-flex-between uk-width-1-2">
-                                    <li><%= posteo.length %>  posts</li>
-                                    <li><%= seguidor %>  seguidores</li>
-                                    <li><%= seguido %>  seguidos</li>
+                                    <li><%= posteos.length %>  posts</li>
+                                    <li><%= seguidores %>  seguidores</li>
+                                    <li><%= seguidos %>  seguidos</li>
                                     <!-- seguido y seguidor son strings o num -->
                                 </ul>
                             </div>
@@ -35,10 +27,10 @@
                    </section>
                    <section class="muro uk-flex uk-flex-middle uk-flex-center">
                         <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
-                            <% for (let i = 0; i < posteo.length; i++) { %> 
+                            <% for (let i = 0; i < posteos.length; i++) { %> 
                             <div class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                                <a href="/detallePosteo/<%= posteo.id %> " class="link-detalle">
-                                    <img src="<%= posteo.foto %>" alt="foto de perfil" class="foto-perfil">
+                                <a href="/detallePosteo/id/<%= posteos[i].id %> " class="link-detalle">
+                                    <img src="images/<%= posteo[i].imagen %>" alt="foto de perfil" class="foto-perfil">
                                     <!-- <p class="uk-text-center">Lorem ipsum</p> -->
                                     <!-- posteo es un objeto que tiene las propiedades foto, id -->
                                 </a>
@@ -48,8 +40,6 @@
                    </section>
                 </div>
             </div>
-        </main>
-
     <%- include('./partials/_footer') %>     
-    </body>
+</body>
 </html>

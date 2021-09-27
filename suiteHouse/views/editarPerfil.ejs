@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<%- include('./partials/_head') %>
+<body>
+    <%- include('./partials/_headerLogueado')%>
+    <form method="post">
+        <div class="uk-container uk-container-small uk-flex uk-flex-column uk-flex-middle uk-flex-center">
+            <div id="image" uk-form-custom="target: true">
+                <input type="file" id="image" accept="image/png, .jpeg, .jpg, video/mp4, .mov, .avi" required>
+                <img src="images/<%= usuario.fotoDePerfil %> " alt="" class="foto-perfil">
+            </div>
+        </div>
+        <div id="caja-contenedora-superpuesta" hidden>
+            <div id="caja-contenedora-superpuesta-interna">
+                <div id="editor"></div>
+                <canvas id="preview"></canvas>
+                <div class="uk-margin">
+                    <div id="botones-foto" class="uk-form-controls uk-flex uk-flex-around">
+                        <button id="button-close" class="uk-icon-button uk-margin-small-right uk-button-danger"><span
+                                uk-icon="close"></span></button>
+                        <button id="button-check" class="uk-icon-button uk-margin-small-right uk-button-primary"><span
+                                uk-icon="check"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="uk-margin-top uk-flex uk-flex-around" id="caja">
+            <div class="uk-container uk-width-large">
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Nombre de usuario</label>
+
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="form-stacked-text" type="text" placeholder="@<%= usuario.usuario %>">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Nombre</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="form-stacked-text" type="text" placeholder="<%= usuario.nombre %>">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Apellido</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="form-stacked-text" type="text" placeholder="<%= usuario.apellido %>">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Email</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="form-stacked-text" type="text" placeholder="<%= usuario.email %>"
+                            pattern="^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Fecha de nacimiento</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="fecNac" type="date" value="<%= usuario.fechaNacimiento %>">
+                        <!-- fechaNacimiento debe ser tipo date (01-01-2002) -->
+                    </div>
+                </div>
+            </div>
+            <div class="uk-container uk-width-large">
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Contraseña actual</label>
+                    <div class="uk-form-password">
+                        <input class="uk-input" id="passwordA" type="password" minlength="8" maxlength="32"
+                            pattern="(?=^.{8,}$)((?=.\d)|(?=.\W+))(?![.\n])(?=.[A-Z])(?=.[a-z]).*$" required>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Nueva contraseña</label>
+                    <div class="uk-form-password">
+                        <input class="uk-input" id="password1" type="password" minlength="8" maxlength="32"
+                            pattern="(?=^.{8,}$)((?=.\d)|(?=.\W+))(?![.\n])(?=.[A-Z])(?=.[a-z]).*$" required>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Repetir contraseña</label>
+                    <div class="uk-form-password">
+                        <input class="uk-input" id="password2" type="password" minlength="8" maxlength="32"
+                            pattern="(?=^.{8,}$)((?=.\d)|(?=.\W+))(?![.\n])(?=.[A-Z])(?=.[a-z]).*$" required>
+                    </div>
+
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-form-controls uk-flex uk-flex-around">
+                        <button id="reset" class="uk-button uk-button-danger uk-width-small" type="reset"><span
+                                uk-icon="trash"></span></button>
+                        <button class="uk-button uk-button-primary uk-width-small">guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <%- include('./partials/_footer') %>
+</body>
+</html>
