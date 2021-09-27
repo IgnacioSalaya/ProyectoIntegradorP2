@@ -5,70 +5,70 @@ const posteos = {
         {
             id: 1,
             usuarioId: 1, // Autor
-            imagen: 'suiteHome.png',
+            imagen: 'post-suiteHome.png',
             pieDeImagen: 'Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado',
             fechaPublicacion: '11:20 17/09/21'
         },
         {
             id: 2,
             usuarioId: 2,
-            imagen: 'suiteHome.png',
+            imagen: 'post-mascotaEnCasa.png',
             pieDeImagen: 'Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado',
             fechaPublicacion: '11:20 17/09/21'
         },
         {
             id: 3,
             usuarioId: 3,
-            imagen: 'suiteHome.png',
+            imagen: 'post-CocinaBlanca.png',
             pieDeImagen: 'Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado',
             fechaPublicacion: '11:20 17/09/21'
         },
         {
             id: 4,
             usuarioId: 4,
-            imagen: 'suiteHome.png',
+            imagen: 'post-compuEnCama.png',
             pieDeImagen: 'Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado',
             fechaPublicacion: '11:20 17/09/21'
         },
         {
             id: 5,
             usuarioId: 5,
-            imagen: 'suiteHome.png',
+            imagen: 'post-Estantes.png',
             pieDeImagen: 'Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado',
             fechaPublicacion: '11:20 17/09/21'
         },
         {
             id: 6,
             usuarioId: 1,
-            imagen: 'suiteHome.png',
+            imagen: 'post-suiteHomeDos.png',
             pieDeImagen: 'Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado',
             fechaPublicacion: '11:20 17/09/21'
         },
         {
             id: 7,
             usuarioId: 2,
-            imagen: 'suiteHome.png',
+            imagen: 'post-living.png',
             pieDeImagen: 'Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado',
             fechaPublicacion: '11:20 17/09/21'
         },
         {
             id: 8,
             usuarioId: 3,
-            imagen: 'suiteHome.png',
+            imagen: 'post-muebleBlanco.png',
             pieDeImagen: 'Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado',
             fechaPublicacion: '11:20 17/09/21'
         },
         {
             id: 9,
             usuarioId: 4,
-            imagen: 'suiteHome.png',
+            imagen: 'post-PlantaInterior.png',
             pieDeImagen: 'Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado',
             fechaPublicacion: '11:20 17/09/21'
         },
         {
             id: 10,
             usuarioId: 5,
-            imagen: 'suiteHome.png',
+            imagen: 'post-SillonModerno.png',
             pieDeImagen: 'Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado',
             fechaPublicacion: '11:20 17/09/21'
         }

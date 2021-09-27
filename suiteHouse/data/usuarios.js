@@ -5,10 +5,10 @@ const usuarios = {
             mail: 'usuario@gmail.com',
             contraseña: 'contraseña123',
             fechaNacimiento: '01/01/2000',
-            usuario: 'Usuario1', // Único por usuario
-            nombre: 'Usuario', // Arreglar comillas
-            apellido: 'Uno',
-            fotoDePerfil: 'homeProfile.png',
+            usuario: 'SuiteHome', // Único por usuario
+            nombre: 'Suite',
+            apellido: 'Home',
+            fotoDePerfil: 'perfil-suiteHome.png',
             seguidores: 501,
             seguidos: 105
         },
@@ -17,10 +17,10 @@ const usuarios = {
             mail: 'usuario@gmail.com',
             contraseña: 'contraseña123',
             fechaNacimiento: '01/01/2000',
-            usuario: 'Usuario2', // Único por usuario
-            nombre: 'Usuario',
+            usuario: 'Brandan2', // Único por usuario
+            nombre: 'Brandan',
             apellido: 'Dos',
-            fotoDePerfil: 'homeProfile.png',
+            fotoDePerfil: 'perfil-Brandan.png',
             seguidores: 501,
             seguidos: 105
         },
@@ -29,10 +29,10 @@ const usuarios = {
             mail: 'usuario@gmail.com',
             contraseña: 'contraseña123',
             fechaNacimiento: '01/01/2000',
-            usuario: 'Usuario3', // Único por usuario
-            nombre: 'Usuario',
+            usuario: 'Maira3', // Único por usuario
+            nombre: 'Maira',
             apellido: 'Tres',
-            fotoDePerfil: 'homeProfile.png',
+            fotoDePerfil: 'perfil-Maira.png',
             seguidores: 501,
             seguidos: 105
         },
@@ -41,10 +41,10 @@ const usuarios = {
             mail: 'usuario@gmail.com',
             contraseña: 'contraseña123',
             fechaNacimiento: '01/01/2000',
-            usuario: 'Usuario4', // Único por usuario
-            nombre: 'Usuario',
+            usuario: 'Sol4', // Único por usuario
+            nombre: 'Sol',
             apellido: 'Cuatro',
-            fotoDePerfil: 'homeProfile.png',
+            fotoDePerfil: 'perfil-Sol.png',
             seguidores: 501,
             seguidos: 105
         },
@@ -53,70 +53,10 @@ const usuarios = {
             mail: 'usuario@gmail.com',
             contraseña: 'contraseña123',
             fechaNacimiento: '01/01/2000',
-            usuario: 'Usuario5', // Único por usuario
-            nombre: 'Usuario',
+            usuario: 'Spencer5', // Único por usuario
+            nombre: 'Spencer',
             apellido: 'Cinco',
-            fotoDePerfil: 'homeProfile.png',
-            seguidores: 501,
-            seguidos: 105
-        },
-        {
-            id: 6,
-            mail: 'usuario@gmail.com',
-            contraseña: 'contraseña123',
-            fechaNacimiento: '01/01/2000',
-            usuario: 'Usuario5', // Único por usuario
-            nombre: 'Usuario',
-            apellido: 'Cinco',
-            fotoDePerfil: 'homeProfile.png',
-            seguidores: 501,
-            seguidos: 105
-        },
-        {
-            id: 7,
-            mail: 'usuario@gmail.com',
-            contraseña: 'contraseña123',
-            fechaNacimiento: '01/01/2000',
-            usuario: 'Usuario5', // Único por usuario
-            nombre: 'Usuario',
-            apellido: 'Cinco',
-            fotoDePerfil: 'homeProfile.png',
-            seguidores: 501,
-            seguidos: 105
-        },
-        {
-            id: 8,
-            mail: 'usuario@gmail.com',
-            contraseña: 'contraseña123',
-            fechaNacimiento: '01/01/2000',
-            usuario: 'Usuario5', // Único por usuario
-            nombre: 'Usuario',
-            apellido: 'Cinco',
-            fotoDePerfil: 'homeProfile.png',
-            seguidores: 501,
-            seguidos: 105
-        },
-        {
-            id: 9,
-            mail: 'usuario@gmail.com',
-            contraseña: 'contraseña123',
-            fechaNacimiento: '01/01/2000',
-            usuario: 'Usuario5', // Único por usuario
-            nombre: 'Usuario',
-            apellido: 'Cinco',
-            fotoDePerfil: 'homeProfile.png',
-            seguidores: 501,
-            seguidos: 105
-        },
-        {
-            id: 10,
-            mail: 'usuario@gmail.com',
-            contraseña: 'contraseña123',
-            fechaNacimiento: '01/01/2000',
-            usuario: 'Usuario5', // Único por usuario
-            nombre: 'Usuario',
-            apellido: 'Cinco',
-            fotoDePerfil: 'homeProfile.png',
+            fotoDePerfil: 'perfil-Spencer.png',
             seguidores: 501,
             seguidos: 105
         }
