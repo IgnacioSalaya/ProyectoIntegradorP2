@@ -1,10 +1,10 @@
 CREATE DATABASE suitehome;
-
 USE suitehome;
+
 
 -- USUARIOS --
 
-CREATE TABLE usuarios (
+CREATE TABLE users (
     id INT UNSIGNED PRIMARY KEY UNIQUE AUTO_INCREMENT,
     email VARCHAR(150) UNIQUE NOT NULL,
     u_password VARCHAR(200) NOT NULL, /*Para después:  almacenar un objeto en formato json con dos propiedades con las que se encripta la contraseña y almacenar una key de desencriptado en el servidor */
@@ -16,43 +16,98 @@ CREATE TABLE usuarios (
     followers SMALLINT UNSIGNED NOT NULL,
     followed SMALLINT UNSIGNED NOT NULL
 );
-    -- DROP TABLE IF EXISTS usuarios;
+-- DROP TABLE IF EXISTS users;
 
-INSERT INTO usuarios VALUES 
+INSERT INTO users VALUES 
     (default,'usuario1@gmail.com','contraseña123','2000-01-01','SuiteHome','Suite','Home','perfil-suiteHome.png',501,105),
     (default,'usuario2@gmail.com','contraseña123','2000-01-01','Brandan2','Brandan','Dos','perfil-Brandan.png',501,105),
     (default,'usuario3@gmail.com','contraseña123','2000-01-01','Maira3','Maira','Tres','perfil-Maira.png',501,105),
     (default,'usuario4@gmail.com','contraseña123','2000-01-01','Sol4','Sol','Cuatro','perfil-Sol.png',501,105),
     (default,'usuario5@gmail.com','contraseña123','2000-01-01','Spencer5','Spencer','Cinco','perfil-Spencer.png',501,105)
-; -- # {iv:32caracteres,content:Xcaracteres}
-    -- DELETE FROM usuarios WHERE id > 0;
+; -- {iv:32caracteres,content:Xcaracteres}
+-- DELETE FROM usuarios WHERE id > 0;
 
 
 -- POSTEOS --
 
 CREATE TABLE posts (
 	id INT UNSIGNED PRIMARY KEY UNIQUE AUTO_INCREMENT,
-    image VARCHAR(30) NOT NULL,
-    imageCaption VARCHAR(120),
-    publicationDate DATETIME NOT NULL,
-    usuarioId INT UNSIGNED NOT NULL,
-    FOREIGN KEY (usuarioId) REFERENCES usuarios(id)
+    image VARCHAR(50) NOT NULL,
+    image_caption VARCHAR(120),
+    publication_date DATETIME NOT NULL,
+    user_id INT UNSIGNED NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
-    -- DROP TABLE IF EXISTS posteos;
-
+-- DROP TABLE IF EXISTS posts;
 
 INSERT INTO posts VALUES
-	(DEFAULT,'post-suiteHome.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00'),
-	(DEFAULT,'post-mascotaEnCasa.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00'),
-	(DEFAULT,'post-CocinaBlanca.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00'),
-	(DEFAULT,'post-compuEnCama.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00'),
-	(DEFAULT,'post-Estantes.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00'),
-	(DEFAULT,'post-suiteHomeDos.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00'),
-	(DEFAULT,'post-living.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00'),
-	(DEFAULT,'post-muebleBlanco.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00'),
-	(DEFAULT,'post-PlantaInterior.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00'),
-	(DEFAULT,'post-SillonModerno.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00')
+	(DEFAULT,'post-suiteHome.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',1),
+	(DEFAULT,'post-mascotaEnCasa.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',2),
+	(DEFAULT,'post-CocinaBlanca.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',3),
+	(DEFAULT,'post-compuEnCama.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',4),
+	(DEFAULT,'post-Estantes.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',5),
+	(DEFAULT,'post-suiteHomeDos.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',1),
+	(DEFAULT,'post-living.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',2),
+	(DEFAULT,'post-muebleBlanco.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',3),
+	(DEFAULT,'post-PlantaInterior.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',4),
+	(DEFAULT,'post-SillonModerno.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',5)
 ;
-    -- DELETE FROM posteos WHERE id > 0;
+-- DELETE FROM posts WHERE id > 0;
+
 
 -- COMENTARIOS --
+
+CREATE TABLE comments (
+	id INT UNSIGNED PRIMARY KEY UNIQUE AUTO_INCREMENT,
+    u_comment VARCHAR(80) NOT NULL,
+    publication_date DATETIME NOT NULL,
+    user_id INT UNSIGNED NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    post_id INT UNSIGNED NOT NULL,
+    FOREIGN KEY (post_id) REFERENCES posts(id)
+);
+-- DROP TABLE IF EXISTS comments;
+
+INSERT INTO comments VALUES
+	(DEFAULT,'Este es un comentario que comenta algo(1)','2021/09/27 12:59:00',2,1),
+	(DEFAULT,'Este es un comentario que comenta algo(2)','2021/09/27 12:59:00',3,1),
+	(DEFAULT,'Este es un comentario que comenta algo(3)','2021/09/27 12:59:00',4,1),
+	(DEFAULT,'Este es un comentario que comenta algo(4)','2021/09/27 12:59:00',5,1),
+	(DEFAULT,'Este es un comentario que comenta algo(5)','2021/09/27 12:59:00',1,2),
+	(DEFAULT,'Este es un comentario que comenta algo(6)','2021/09/27 12:59:00',3,2),
+	(DEFAULT,'Este es un comentario que comenta algo(7)','2021/09/27 12:59:00',4,2),
+	(DEFAULT,'Este es un comentario que comenta algo(8)','2021/09/27 12:59:00',5,2),
+	(DEFAULT,'Este es un comentario que comenta algo(9)','2021/09/27 12:59:00',1,3),
+	(DEFAULT,'Este es un comentario que comenta algo(10)','2021/09/27 12:59:00',2,3),
+	(DEFAULT,'Este es un comentario que comenta algo(11)','2021/09/27 12:59:00',4,3),
+	(DEFAULT,'Este es un comentario que comenta algo(12)','2021/09/27 12:59:00',5,3),
+	(DEFAULT,'Este es un comentario que comenta algo(13)','2021/09/27 12:59:00',1,4),
+	(DEFAULT,'Este es un comentario que comenta algo(14)','2021/09/27 12:59:00',2,4),
+	(DEFAULT,'Este es un comentario que comenta algo(15)','2021/09/27 12:59:00',3,4),
+	(DEFAULT,'Este es un comentario que comenta algo(16)','2021/09/27 12:59:00',5,4),
+	(DEFAULT,'Este es un comentario que comenta algo(17)','2021/09/27 12:59:00',1,5),
+	(DEFAULT,'Este es un comentario que comenta algo(18)','2021/09/27 12:59:00',2,5),
+	(DEFAULT,'Este es un comentario que comenta algo(19)','2021/09/27 12:59:00',3,5),
+	(DEFAULT,'Este es un comentario que comenta algo(20)','2021/09/27 12:59:00',4,5),
+	(DEFAULT,'Este es un comentario que comenta algo(21)','2021/09/27 12:59:00',2,6),
+	(DEFAULT,'Este es un comentario que comenta algo(22)','2021/09/27 12:59:00',3,6),
+	(DEFAULT,'Este es un comentario que comenta algo(23)','2021/09/27 12:59:00',4,6),
+	(DEFAULT,'Este es un comentario que comenta algo(24)','2021/09/27 12:59:00',5,6),
+	(DEFAULT,'Este es un comentario que comenta algo(25)','2021/09/27 12:59:00',1,7),
+	(DEFAULT,'Este es un comentario que comenta algo(26)','2021/09/27 12:59:00',3,7),
+	(DEFAULT,'Este es un comentario que comenta algo(27)','2021/09/27 12:59:00',4,7),
+	(DEFAULT,'Este es un comentario que comenta algo(28)','2021/09/27 12:59:00',5,7),
+	(DEFAULT,'Este es un comentario que comenta algo(29)','2021/09/27 12:59:00',1,8),
+	(DEFAULT,'Este es un comentario que comenta algo(30)','2021/09/27 12:59:00',2,8),
+	(DEFAULT,'Este es un comentario que comenta algo(31)','2021/09/27 12:59:00',4,8),
+	(DEFAULT,'Este es un comentario que comenta algo(32)','2021/09/27 12:59:00',5,8),
+	(DEFAULT,'Este es un comentario que comenta algo(33)','2021/09/27 12:59:00',1,9),
+	(DEFAULT,'Este es un comentario que comenta algo(34)','2021/09/27 12:59:00',2,9),
+	(DEFAULT,'Este es un comentario que comenta algo(35)','2021/09/27 12:59:00',3,9),
+	(DEFAULT,'Este es un comentario que comenta algo(36)','2021/09/27 12:59:00',5,9),
+	(DEFAULT,'Este es un comentario que comenta algo(37)','2021/09/27 12:59:00',1,10),
+	(DEFAULT,'Este es un comentario que comenta algo(38)','2021/09/27 12:59:00',2,10),
+	(DEFAULT,'Este es un comentario que comenta algo(39)','2021/09/27 12:59:00',3,10),
+	(DEFAULT,'Este es un comentario que comenta algo(40)','2021/09/27 12:59:00',4,10)
+;
+-- DELETE FROM comments WHERE id > 0;
