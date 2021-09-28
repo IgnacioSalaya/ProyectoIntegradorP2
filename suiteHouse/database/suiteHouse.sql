@@ -1,45 +1,47 @@
-CREATE DATABASE suitehouse;
+CREATE DATABASE suitehome;
 
-USE suitehouse;
+USE suitehome;
 
 -- USUARIOS --
 
 CREATE TABLE usuarios (
-    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    id INT UNSIGNED PRIMARY KEY UNIQUE AUTO_INCREMENT,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    u_password VARCHAR(200) NOT NULL, /*Para después:  almacenar un objeto en formato json con dos propiedades con las que se encripta la contraseña y almacenar una key de desencriptado en el servidor */
+    date_of_birth DATE NOT NULL,
+    u_name VARCHAR(45) UNIQUE NOT NULL,
     first_name VARCHAR(45) NOT NULL,
     last_name VARCHAR(45) NOT NULL,
-    u_name VARCHAR(45) NOT NULL,
-    u_password VARCHAR(200) NOT NULL, /* almacenar un objeto en formato json con dos propiedades 
-    con las que se encripta la contraseña y almacenar una key de desencriptado en el servidor */
-    email VARCHAR(150) NOT NULL,
-    profile_photo MEDIUMBLOB DEFAULT NULL,
-    date_of_birth DATE NOT NULL,
-    ft_sign_up DATESTAMP NOT NULL, -- datestamp consume menos recursos falta script en registro que nos de este valor
-    -- por el momento nada más
+    profile_photo VARCHAR(30) DEFAULT('perfil-Defecto.png'),
+    followers SMALLINT UNSIGNED NOT NULL,
+    followed SMALLINT UNSIGNED NOT NULL
 );
+    -- DROP TABLE IF EXISTS usuarios;
 
 INSERT INTO usuarios VALUES 
-    (default,'nombre','apellido','napellido','{iv:32caracteres, content:Xcaracteres}','napellido@example.com','2000-01-01','2021-09-10 03:15:32'),
-    (default,'nombre1','apellido1','napellido1','{iv:32caracteres, content:Xcaracteres}','napellido1@example.com','2000-01-01','2021-09-10 03:18:29'),
-    (default,'nombre2','apellido2','napellido2','{iv:32caracteres, content:Xcaracteres}','napellido2@example.com','2000-01-01','2021-09-10 04:25:33'),
-    (default,'nombre3','apellido3','napellido3','{iv:32caracteres, content:Xcaracteres}','napellido3@example.com','2000-01-01','2021-09-10 04:33:42'),
-    (default,'nombre4','apellido4','napellido4','{iv:32caracteres, content:Xcaracteres}','napellido4@example.com','2000-01-01','2021-09-10 05:25:02')
-;
+    (default,'usuario1@gmail.com','contraseña123','2000-01-01','SuiteHome','Suite','Home','perfil-suiteHome.png',501,105),
+    (default,'usuario2@gmail.com','contraseña123','2000-01-01','Brandan2','Brandan','Dos','perfil-Brandan.png',501,105),
+    (default,'usuario3@gmail.com','contraseña123','2000-01-01','Maira3','Maira','Tres','perfil-Maira.png',501,105),
+    (default,'usuario4@gmail.com','contraseña123','2000-01-01','Sol4','Sol','Cuatro','perfil-Sol.png',501,105),
+    (default,'usuario5@gmail.com','contraseña123','2000-01-01','Spencer5','Spencer','Cinco','perfil-Spencer.png',501,105)
+; -- # {iv:32caracteres,content:Xcaracteres}
+    -- DELETE FROM usuarios WHERE id > 0;
 
 
 -- POSTEOS --
 
-CREATE TABLE posteos (
+CREATE TABLE posts (
 	id INT UNSIGNED PRIMARY KEY UNIQUE AUTO_INCREMENT,
-    # COMENTARIO usuarioId VARCHAR(20) UNIQUE NOT NULL,
-    imagen VARCHAR(30) NOT NULL,
-    pieDeImagen VARCHAR(120),
-    fechaPublicacion DATETIME NOT NULL
+    image VARCHAR(30) NOT NULL,
+    imageCaption VARCHAR(120),
+    publicationDate DATETIME NOT NULL,
+    usuarioId INT UNSIGNED NOT NULL,
+    FOREIGN KEY (usuarioId) REFERENCES usuarios(id)
 );
--- DROP TABLE IF EXISTS posteos;
+    -- DROP TABLE IF EXISTS posteos;
 
 
-INSERT INTO posteos VALUES
+INSERT INTO posts VALUES
 	(DEFAULT,'post-suiteHome.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00'),
 	(DEFAULT,'post-mascotaEnCasa.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00'),
 	(DEFAULT,'post-CocinaBlanca.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00'),
@@ -51,6 +53,6 @@ INSERT INTO posteos VALUES
 	(DEFAULT,'post-PlantaInterior.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00'),
 	(DEFAULT,'post-SillonModerno.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00')
 ;
--- DELETE FROM posteos WHERE id > 0;
+    -- DELETE FROM posteos WHERE id > 0;
 
 -- COMENTARIOS --

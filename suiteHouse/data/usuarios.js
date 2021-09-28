@@ -2,7 +2,7 @@ const usuarios = {
     lista: [
         {
             id: 1,
-            mail: 'usuario@gmail.com',
+            mail: 'usuario1@gmail.com',
             contraseña: 'contraseña123',
             fechaNacimiento: '01/01/2000',
             usuario: 'SuiteHome', // Único por usuario
@@ -14,7 +14,7 @@ const usuarios = {
         },
         {
             id: 2,
-            mail: 'usuario@gmail.com',
+            mail: 'usuario2@gmail.com',
             contraseña: 'contraseña123',
             fechaNacimiento: '01/01/2000',
             usuario: 'Brandan2', // Único por usuario
@@ -26,7 +26,7 @@ const usuarios = {
         },
         {
             id: 3,
-            mail: 'usuario@gmail.com',
+            mail: 'usuario3@gmail.com',
             contraseña: 'contraseña123',
             fechaNacimiento: '01/01/2000',
             usuario: 'Maira3', // Único por usuario
@@ -38,7 +38,7 @@ const usuarios = {
         },
         {
             id: 4,
-            mail: 'usuario@gmail.com',
+            mail: 'usuario4@gmail.com',
             contraseña: 'contraseña123',
             fechaNacimiento: '01/01/2000',
             usuario: 'Sol4', // Único por usuario
@@ -50,7 +50,7 @@ const usuarios = {
         },
         {
             id: 5,
-            mail: 'usuario@gmail.com',
+            mail: 'usuario5@gmail.com',
             contraseña: 'contraseña123',
             fechaNacimiento: '01/01/2000',
             usuario: 'Spencer5', // Único por usuario
