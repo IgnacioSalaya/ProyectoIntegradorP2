@@ -1,0 +1,5 @@
+# Ignorar modulos, están en package.json (dependencies)
+/node_modules
+
+# Archivos macOS
+.DS_Store
