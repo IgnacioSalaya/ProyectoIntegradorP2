@@ -5,4 +5,8 @@
 .DS_Store
 
 # Ignorar config.js por la contraseña
-suiteHouse/database/config/config.js
+/database/config
+
+# Ignorar datos locales
+/public/posteos
+/public/foto_perfil_usuarios
