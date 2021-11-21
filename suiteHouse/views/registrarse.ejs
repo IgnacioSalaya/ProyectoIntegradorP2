@@ -3,37 +3,38 @@
 
 <%- include('./partials/_head')%>
 
-<body>
+<body> 
     <%- include('./partials/_headerDeslogueado')%>
     <div class="uk-section uk-section-small">
-            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
-                <form action="" method="POST">
-                    
+        <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+            <form action="/registrarse" method="POST" enctype="multipart/form-data">    
+                <div class="uk-card uk-card-default uk-card-body">
+                    <h3>Registrarse</h3>
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-stacked-text">Nombre</label>
                         <div class="uk-form-controls">
-                            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Pablo" required>
+                            <input type="text" class="uk-input" id="form-stacked-text" name="nombre" placeholder="Pablo" required>
                         </div>
                     </div>
                     
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-stacked-text">Apellido</label>
                         <div class="uk-form-controls">
-                            <input class="uk-input" id="form-stacked-text" type="text" placeholder="Martínez" required>
+                            <input type="text" class="uk-input" id="form-stacked-text" name="apellido" placeholder="Matínez" required>
                         </div>
                     </div>
                     
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-stacked-text">Nombre de usuario</label>
                         <div class="uk-form-controls">
-                            <input class="uk-input" id="form-stacked-text" type="text" placeholder="pmartinez" required>
+                            <input type="text" class="uk-input" id="form-stacked-text" name="nombreUsuario" placeholder="pmartinez" required>
                         </div>
                     </div>
                     
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-stacked-text">Email</label>
                         <div class="uk-form-controls">
-                            <input class="uk-input" id="form-stacked-text" type="email" placeholder="pablomartinez@example.com" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
+                            <input type="email" class="uk-input" id="form-stacked-text" name="email" placeholder="pmartinez@example.com" required>
                         </div>
                     </div>
                     
@@ -42,23 +43,24 @@
                         <label class="uk-form-label" for="letra-chica">Entre 8 y 32 caracteres.</label><br>
                         <label class="uk-form-label" for="letra-chica">Al menos una mayuscula, minuscula y número.</label>
                         <div class="uk-form-password">
-                            <input class="uk-input" id="form-stacked-password" type="password" minlength="8" maxlength="32" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
+                            <input type="password" class="uk-input" id="form-stacked-text" name="contrasenia" required>
                         </div>
                     </div>
                     
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-stacked-text">Fecha de nacimiento</label>
                         <div class="uk-form-controls">
-                            <input class="uk-input uk-width-large" id="fecNac" type="date" required>
+                            <input type="date" class="uk-input uk-width-large" id="form-stacked-text" name="fecNac" required>
                         </div>
                     </div>
 
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-stacked-text">Foto de perfil</label>
-                        <div class="uk-form-controls">
-                            <div uk-form-custom="target: true">
-                                <input type="file" accept="image/png, .jpeg, .jpg, image/gif" required>
-                                <input class="uk-input " type="text" placeholder="Seleccione una foto desde su ordenador" disabled>
+                        <div class="js-upload uk-placeholder uk-text-center">
+                            <div uk-form-custom>
+                                <input type="file" class="" id="" name="imagenPerfil" accept="image/png, .jpeg, .jpg, image/gif">
+                                <span uk-icon="icon: cloud-upload"></span>
+                                <span class="uk-link">Seleccione una foto desde su ordenador</span>
                             </div>
                         </div>
                     </div>
@@ -69,6 +71,7 @@
                             <button class="uk-button uk-button-primary uk-width-3-4">registrarme</button>
                         </div>
                     </div>
+                </div>
                 </form>
             </div>
         </div>

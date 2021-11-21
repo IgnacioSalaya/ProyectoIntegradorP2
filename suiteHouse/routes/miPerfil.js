@@ -3,6 +3,6 @@ const usuariosController = require('../controllers/usuariosController')
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', usuariosController.vistaMiPerfil);
+router.get('/', usuariosController.miPerfil);
 
 module.exports = router;

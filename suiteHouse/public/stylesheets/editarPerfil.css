@@ -5,6 +5,10 @@
     max-height: 200px;
 }
 
+#div-card {
+    min-height: calc(100vh - 185px);
+}
+
 #caja {
     max-width: 80vw;
     margin: auto;

@@ -34,6 +34,18 @@ header a:hover{
     width: 45px;
 }
 
+header button {
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-family: 'Prompt', sans-serif;
+    font-size: 12pt
+}
+
+header button:hover {
+    color: #224A59;
+}
+
 header ul{
     margin: 0;
     padding: 0;

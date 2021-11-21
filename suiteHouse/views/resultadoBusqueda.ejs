@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/_head') %>
+<body>
+    <%- include('./partials/_headerDeslogueado')%>
+        <!-- este es el action del form registrarse -->
+        <div class="uk-section uk-section-small" id="posts-card">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+                <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+                    <div class="uk-margin">
+                        <h3>Resultados de búsqueda</h3>
+                    </div>
+                    <ul class="uk-list uk-list-striped">
+                        <% if(usuarios.length > 0) { %>
+                            <% usuarios.forEach(data => { %>
+                                <li>
+                                    <a href="detalleUsuario/<%= data.id %>"><%= data.nombreUsuario %></a>
+                                </li>
+                            <% }) %>
+                        <% } else if(posteos.length > 0) { %>
+                            <% posteos.forEach(data => { %>
+                                <li>
+                                    <a href="detallePost/<%= data.id %>"><%= data.piePublicacion %></a> - <a class="uk-text-capitalize" href="detalleUsuario/<%= data.usuarioId %>"><%= data.usuario_posteo.nombreUsuario %></a>
+                                </li>
+                            <% }) %>
+                        <% } else { %>
+                            <li>¡N<span class="uk-text-lowercase">o se han encontrado resultados para su criterio de búsqueda!</span></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <%- include('./partials/_footer') %> 
+</body>
+</html>

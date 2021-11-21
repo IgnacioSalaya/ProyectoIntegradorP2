@@ -1,0 +1,3 @@
+#posts-card {
+    min-height: calc(100vh - 105px);
+  }

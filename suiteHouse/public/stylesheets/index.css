@@ -5,6 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 /* font-family: 'Prompt', sans-serif; */
 
+#posts-card {
+    min-height: calc(100vh - 105px);
+}
+
 article.post{
     border: 1px solid lightgray;
     border-radius: 10px;
@@ -68,32 +72,24 @@ article.post div.post-comentarios {
     margin-top: 10px;
     margin-left: 20px;
 }
-article.post div.post-comentarios h6{
+article.post div.post-comentarios div h6{
     margin-bottom: 0;
     font-family: 'Cabin', sans-serif;
 }
-article.post div.post-comentarios ul{
+article.post div.post-comentarios div ul{
     list-style: none;
     margin-top: 5px
 }
-article.post div.post-comentarios ul li{
+article.post div.post-comentarios div ul li{
     display: flex;
     font-family: 'Open Sans', sans-serif;
 }
-article.post div.post-comentarios ul li a{
+article.post div.post-comentarios div ul li a{
     color: #224A59;
     text-decoration: none;
     font-family: 'Cabin', sans-serif;
 }
-article.post div.post-comentarios ul li p{
+article.post div.post-comentarios div ul li p{
     margin: 0 5px;
     font-family: 'Open Sans', sans-serif;
-}
-
-.post-comentarios-extendido-escondido, .post-comentarios-reducido-escondido {
-    display: none;
-}
-
-.post-comentarios-extendido, .post-comentarios-reducido {
-    display: block;
 }

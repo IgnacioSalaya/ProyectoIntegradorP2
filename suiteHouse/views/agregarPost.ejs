@@ -6,14 +6,14 @@
 <body>
     <%- include('./partials/_headerLogueado') %>
         <div class="uk-section uk-section-small">
-            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
-                <form action="" method="post">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center" id="div-card">
+                <form action="/agregarPost" method="post" enctype="multipart/form-data">
                     <div class="uk-card uk-card-default uk-card-body uk-width-3-3@m">
-    
+                        <h3>Agregar posteo</h3>
                         <div class="uk-margin">
                             <div class="uk-column">
                                 <div id="cargaImg" uk-form-custom="target: true">
-                                    <input type="file" id="file" accept="image/png, .jpeg, .jpg, video/mp4, .mov, .avi"
+                                    <input type="file" name="imagenPosteo" accept="image/png, .jpeg, .jpg, video/mp4, .mov, .avi"
                                         required>
                                     <input class="uk-input uk-width-large" type="text"
                                         placeholder="Seleccione una foto desde su ordenador" disabled>
@@ -27,7 +27,7 @@
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-stacked-text">Pie de foto</label>
                             <div class="uk-column">
-                                <input class="uk-input uk-width-large" type="text" placeholder="Pie de foto" required>
+                                <input class="uk-input uk-width-large" name="piePublicacion" type="text" placeholder="Pie de foto" required>
                             </div>
                         </div>
                         <div class="uk-margin">

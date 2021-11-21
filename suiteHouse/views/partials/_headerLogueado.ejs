@@ -3,14 +3,17 @@
         <div class="">
             <nav class="" uk-navbar>
                 <div class="uk-navbar-left">
-                    <h2 class="logo"><a href="/"><img src="/images/SH-isotipo.png" alt=""></a></h2>
+                    <h2 class="logo"><a href="/"><img src="/images/logo/SH-isotipo.png" alt=""></a></h2>
                 </div>
                 <div class="uk-navbar-center">
                     <ul class="uk-flex uk-flex-between uk-flex-middle">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/">Logout</a></li>
-                        <!-- Falta definir rutas -->
-                    </ul>
+                        <form action="/logout" method="post">
+                            <button>
+                                Logout
+                            </button>                     
+                        </form>
+                    </ul>                    
                 </div>
                 <div class="uk-navbar-right">
                     <a href="/agregarPost">Agregar post</a>
@@ -19,8 +22,17 @@
                     <!-- Falta definir rutas -->
                     <form action="/resultadoBusqueda" class="uk-search uk-search-default">
                         <!-- Falta definir rutas (detalle usuario) -->
-                        <span uk-search-icon></span>
-                        <input type="search" class="uk-search-input" placeholder="Buscar...">
+                        <div class="uk-inline">
+                            <span uk-search-icon></span>
+                            <input type="search" name="search" class="uk-search-input" placeholder="Buscar...">
+                            <div uk-dropdown="mode: click">
+                                <div class="uk-form-label">Filtrar por:</div>
+                                <div class="uk-form-controls">
+                                    <label><input class="uk-radio" type="radio" name="filtro" value="usuario" checked> Usuario</label>
+                                    <label><input class="uk-radio" type="radio" name="filtro" value="posteo"> Posteo</label>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </nav>

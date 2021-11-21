@@ -4,6 +4,6 @@ const posteosController = require('../controllers/posteosController');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/id/:id', posteosController.vistaDetallePost);
+router.get('/:id', posteosController.detallePost);
 
 module.exports = router;
