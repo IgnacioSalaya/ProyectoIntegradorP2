@@ -1,5 +1,8 @@
 # Ignorar modulos, están en package.json (dependencies)
-# /node_modules
+/node_modules
 
 # Archivos macOS
 .DS_Store
+
+# Ignorar config.js por la contraseña
+suiteHouse/database/config/config.js
