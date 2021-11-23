@@ -12,6 +12,7 @@
 
     <!-- UiKit -->
     <link rel="stylesheet" href="/stylesheets/uikit.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <!-- <script src="scripts/uikit-icons.min.js"></script> -->
     <script src="/scripts/uikit.min.js"></script>
     <!-- UiKit -->
@@ -22,13 +23,8 @@
     <!-- UIkit JS -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
-    
-    <!-- Deshabilita la funcionalidad del doble click del usuario en nuestra web -->
-    <!-- <script type='text/javascript'>
-        document.oncontextmenu = () => false;
-    </script> -->
 
-    <% if (style === 'editarPerfil') { %>
+    <% if (style === 'editarPerfil' || style === 'registrarse' || style === 'agregarPost') { %>
         <!-- Librerias para cortar imagen para agregar posteo -->
         <script src="https://cdn.jsdelivr.net/gh/jamesssooi/Croppr.js@2.3.0/dist/croppr.min.js"></script>
         <link href="https://cdn.jsdelivr.net/gh/jamesssooi/Croppr.js@2.3.0/dist/croppr.min.css" rel="stylesheet" />

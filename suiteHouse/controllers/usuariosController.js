@@ -16,12 +16,14 @@ const usuariosController = {
             return res.redirect('/');
         } else {
             Usuario.findOne({
-                where: {'id': req.session.user.id}
+                where: {'id': req.session.user.id},
+                include: [
+                    {association: 'posteos_usuario'}
+                ]
             })
             .then((data) => {
                 delete data.contrasenia
-                // return res.render('miPerfil', {style: 'miPerfil', usuario: data})
-                res.send(data)
+                return res.render('miPerfil', {style: 'miPerfil', usuario: data})
             })
             .catch((err) => {
                 return res.send(err);
@@ -101,8 +103,8 @@ const usuariosController = {
                 if(bcrypt.compareSync(req.body.contrasenia, data.contrasenia)){
                     delete data.contrasenia;
                     req.session.user = data;
-                    if(req.body.recordame){
-                        res.cookie('resultadoId', data.id, {maxAge: 1000 * 60 * 30})
+                    if(req.body.recordarme){
+                        res.cookie('usuarioId', data.id, {maxAge: 1000 * 60 * 30})
                     }
                     res.redirect('/');
                 } else {
@@ -118,8 +120,7 @@ const usuariosController = {
     },
     logout: (req, res) => {
         req.session.destroy();
-        res.clearCookie('resultadoId');
-        res.clearCookie('connect.sid', {path: '/'}).status(200);
+        res.clearCookie('usuarioId');
         res.redirect('/'); 
     },
     registrarse: (req, res) => {
