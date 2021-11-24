@@ -6,7 +6,7 @@
 <body>
     <%- include('./partials/_headerLogueado') %>
         <div class="uk-section uk-section-small">
-            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center" id="div-card">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center contenido" id="div-card">
                 <form action="/detallePost/modificar/<%= posteo.id %>" method="post" enctype="multipart/form-data"> <!-- Form -->
                     <div class="uk-card uk-card-default uk-card-body uk-width-3-3@m">
                         <h3>Editar posteo</h3>
@@ -26,7 +26,7 @@
                         <div class="uk-margin">
                             <label class="uk-form-label" for="form-stacked-text">Pie de foto</label>
                             <div class="uk-column">
-                                <input class="uk-input uk-width-large" name="piePublicacion" type="text" placeholder="<%= posteo.piePublicacion %>"> <!-- Pie de foto -->
+                                <input class="uk-input uk-width-large" name="piePublicacion" type="text" value="<%= posteo.piePublicacion %>"> <!-- Pie de foto -->
                             </div>
                         </div>
                         <div class="uk-margin">
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </div>
-                </form>
+                </form> <!-- Cierra form -->
             </div>
         </div>
     <%- include('./partials/_footer') %> 

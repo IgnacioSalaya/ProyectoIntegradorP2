@@ -59,13 +59,11 @@ const posteosController = {
         })
     },
     nuevoComentario : (req,res,) => {
-        if (!req.session.user){
-            res.redirect('/login');
-        }else{
+        if (req.session.user != null && req.session.user != undefined){
             Comentario.create({    
                 comentario: req.body.nuevoComentario,
                 posteoId: req.params.id,
-                usuarioId: req.cookies.usuarioId, 
+                usuarioId: req.session.user.id, 
             })
             .then(data => {
                 res.redirect('/detallePost/'+ req.params.id)
@@ -73,22 +71,28 @@ const posteosController = {
             .catch(err => {
                 res.send(err)
             })
+        }else{
+            res.redirect('/login');
         }
     },
     eliminarPosteo: (req, res) => {
-        Posteos.destroy({
-            where: {id: req.params.id}
-        })
-        .then (data => {
-            if (data) {
-                res.redirect('/')
-            }else{
-                res.redirect('/detallePost/'+ req.params.id)
-            }
-        })
-        .catch(err => {
-            res.send(err)
-        })
+        if (req.session.user != null){
+            let eliminarComentario = Comentario.destroy({
+                where:{ posteoId: req.params.id }
+            })
+            let eliminarPosteo = Posteos.destroy({
+                where:{ id: req.params.id }
+            })
+            Promise.all([eliminarComentario, eliminarPosteo])
+                .then(function ([uno, dos]) {
+                    res.redirect("/")
+                })
+                .catch(err => {
+                    res.send(err)
+                })
+        }else{
+            res.redirect('/login');
+        }
     },
     vistaModificarPosteo: (req, res) => {
         if (req.session.user != undefined) {
@@ -104,9 +108,10 @@ const posteosController = {
         }
     },
     modificarPosteo: (req, res) => {
-        if (req.body.nuevaImagen != undefined) {
+        if (req.file != undefined && req.session.user != undefined) {
             Posteos.update({
-                imagenPosteo: req.body.nuevaImagen,
+                imagenPosteo: req.file.filename,
+                piePublicacion: req.body.piePublicacion,
             },
             {
                 where: {
@@ -114,13 +119,12 @@ const posteosController = {
                 }
             })
             .then(data => {
-                console.log('if');
                 res.redirect('/detallePost/'+ req.params.id)
             })
             .catch(err => {
                 res.send(err)
             })
-        }else if (req.body.piePublicacion != undefined){
+        }else if(req.file == undefined && req.session.user != undefined){
             Posteos.update({
                 piePublicacion: req.body.piePublicacion,
             },
@@ -130,15 +134,11 @@ const posteosController = {
                 }
             })
             .then(data => {
-                console.log('else if');
                 res.redirect('/detallePost/'+ req.params.id)
             })
             .catch(err => {
                 res.send(err)
             })
-        }else{
-            console.log('else: ' + req.body.piePublicacion);
-            res.redirect('/detallePost/'+ req.params.id)
         }
     },
     buscador: (req,res,next) => {

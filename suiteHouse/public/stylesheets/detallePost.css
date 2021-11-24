@@ -1,7 +1,6 @@
 /* Marcos generales */
-
 div.contenido {
-    height: calc(100vh - 160px);
+    min-height: calc(100vh - 160px);
 }
 
 article.posteo {
@@ -51,7 +50,6 @@ div.infoPrincipal {
 div.infoConstante {
     
     height: 35px;
-    width: 45%;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
@@ -71,11 +69,6 @@ h3.usuario {
     margin-left: 10px;
 }
 
-form.infoModificar {
-    height: 40px;
-    width: 50%;
-}
-
 div.botones {
     display: flex;
     flex-wrap: wrap;
@@ -84,11 +77,12 @@ div.botones {
     box-sizing: border-box;
 }
 
-button.boton {
+div.infoPrincipal .boton {
     height: 35px;
     width: 35px;
     background-color: rgb(255, 255, 255);
     border: solid rgb(150, 150, 150) 1px;
+    color: black;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -97,9 +91,10 @@ button.boton {
     margin-right: 1%;
 }
 
-button.boton:hover {
+div.infoPrincipal .boton:hover {
     background-color: rgb(170, 8, 8);
     cursor: pointer;
+    text-decoration: none;
 }
 
 .boton i {

@@ -23,10 +23,10 @@
                             <!-- Botones para editar -->
                             <% if( user !== null ) { %>
                                 <% if( user.id === posteo.usuario_posteo.id ) { %>
-                                    <form class="infoModificar" action="/detallePost/eliminar/<%= posteo.id %>" method="post">                                   
+                                    <form action="/detallePost/eliminar/<%= posteo.id %>" method="post">                                   
                                             <button type="submit" class="boton"><i class="fas fa-times"></i></button>
                                     </form>
-                                    <a href="/detallePost/modificar/<%= posteo.id %>"><i class="fas fa-pen"></i></a>
+                                    <a href="/detallePost/modificar/<%= posteo.id %>" class="boton"><i class="fas fa-pen"></i></a>
                                 <% } %>
                             <% } %>
                         </div>
@@ -45,7 +45,7 @@
                         <!-- Formulario para comentar -->
                         <form action="/detallePost/<%= posteo.id %>" method="post">
                             <div class="agregarComentario">
-                                <input type="text" class="uk-input texto" placeholder="Agregar comentario" name="nuevoComentario">
+                                <input type="text" class="uk-input texto" placeholder="Agregar comentario" name="nuevoComentario" required>
                                 <button class="uk-button uk-button-primary comentar" type="submit">Comentar</button>
                             </div>
                         </form>
