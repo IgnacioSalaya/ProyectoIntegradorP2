@@ -1,6 +1,8 @@
 const db = require('../database/models');
+const Posteo = require('../database/models/Posteo');
 const Posteos = db.Posteo;
 const Usuarios = db.Usuario;
+const Comentario = db.Comentario;
 const op = db.Sequelize.Op;
 
 const posteosController = {
@@ -21,25 +23,123 @@ const posteosController = {
             return res.send(err);
         })
     },
-    detallePost : (req,res) =>{
-        Posteos.findOne({
-            where: {'id': req.params.id},
-            include: [
+    detallePost : (req,res, next) =>{
+    /* Ordenar comentarios fallido
+        let orden = {
+            include: [                              
                 {association: 'usuario_posteo'},
                 {association: 'comentarios_posteo', include: 'usuario_comentario'},
-            ]
+            ],
+            order: [['createdAt', 'DESC'],],
+        }
+        Posteos.findByPk(req.params.id, orden)
+        .then (data => {
+            return res.render('detallePost', {style: 'detallePost', posteo: data});
+        })
+        .catch((err) => {
+            return res.send(err);
+        })
+    */  
+        Posteos.findOne({
+            where: {'id': req.params.id},
+            include: [                              
+                {association: 'usuario_posteo'},
+                {association: 'comentarios_posteo', include: 'usuario_comentario'},
+            ],
         })
         .then((data) => {
             if(data) {
                 return res.render('detallePost', {style: 'detallePost', posteo: data});
             } else {
                 res.send('No se ha encontrado el posteo solicitado');
-                // res.redirect('/');
             }
         })
         .catch((err) => {
             return res.send(err);
         })
+    },
+    nuevoComentario : (req,res,) => {
+        if (!req.session.user){
+            res.redirect('/login');
+        }else{
+            Comentario.create({    
+                comentario: req.body.nuevoComentario,
+                posteoId: req.params.id,
+                usuarioId: req.cookies.usuarioId, 
+            })
+            .then(data => {
+                res.redirect('/detallePost/'+ req.params.id)
+            })
+            .catch(err => {
+                res.send(err)
+            })
+        }
+    },
+    eliminarPosteo: (req, res) => {
+        Posteos.destroy({
+            where: {id: req.params.id}
+        })
+        .then (data => {
+            if (data) {
+                res.redirect('/')
+            }else{
+                res.redirect('/detallePost/'+ req.params.id)
+            }
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    },
+    vistaModificarPosteo: (req, res) => {
+        if (req.session.user != undefined) {
+            Posteos.findByPk(req.params.id)
+            .then((data) => {
+                res.render("editarPost", {
+                    style: 'editarPost',
+                    posteo: data
+                });
+            })
+        } else {
+            res.redirect("/user/login");
+        }
+    },
+    modificarPosteo: (req, res) => {
+        if (req.body.nuevaImagen != undefined) {
+            Posteos.update({
+                imagenPosteo: req.body.nuevaImagen,
+            },
+            {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(data => {
+                console.log('if');
+                res.redirect('/detallePost/'+ req.params.id)
+            })
+            .catch(err => {
+                res.send(err)
+            })
+        }else if (req.body.piePublicacion != undefined){
+            Posteos.update({
+                piePublicacion: req.body.piePublicacion,
+            },
+            {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(data => {
+                console.log('else if');
+                res.redirect('/detallePost/'+ req.params.id)
+            })
+            .catch(err => {
+                res.send(err)
+            })
+        }else{
+            console.log('else: ' + req.body.piePublicacion);
+            res.redirect('/detallePost/'+ req.params.id)
+        }
     },
     buscador: (req,res,next) => {
         let search = req.query.search;
@@ -95,7 +195,7 @@ const posteosController = {
         })
         .then((data) => {
             if(data) {
-                Posteo.create({
+                Posteos.create({
                     imagenPosteo: req.file.filename,
                     piePublicacion: req.body.piePublicacion,
                     usuarioId: data.id,

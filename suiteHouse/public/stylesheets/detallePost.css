@@ -1,66 +1,177 @@
-section.detalle-container{
+/* Marcos generales */
+
+div.contenido {
+    height: calc(100vh - 160px);
+}
+
+article.posteo {
+    width: 100%;
+    padding: 2% 2%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
     border: 1px solid lightgray;
 }
-article.detalle-post{
-    /* border-right: 1px solid lightgray; */
+
+article.infoPost {
+    border: 1px solid lightgray;
 }
 
-article.detalle-post .imagen-post{
+/* Posteo */
 
-}
-
-.comentarios-detalle{
-    border-left: 1px solid lightgray;
-}
-
-.comentarios-detalle .info-post{
-    height: 10%;
-    border-bottom: 1px solid lightgray;
-    padding-left: 5px;
-}
-.comentarios-detalle .info-post img{
-    border-radius: 50%;
-}
-.comentarios-detalle .info-post h3{
-    font-size: 14px;
-    font-weight: bolder;
-    margin: 0 0 0 8px;
-}
-.comentarios-detalle .lista-comentarios{
-    height: 75%;
-    padding-left: 5px;
-    border-bottom: 1px solid lightgray;
-    overflow: scroll;
-}
-.comentarios-detalle .lista-comentarios::-webkit-scrollbar{
-    display: none;
-}
-.comentarios-detalle .agregar-comentario{
-    height: 15%;
-    padding-left: 5px;
+article.posteo img {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    max-height: 55vh;
 }
 
-.comentarios-detalle .lista-comentarios{
-    padding-right: 2px;
-}
-.comentarios-detalle .lista-comentarios .comentario .icono-meGusta{
-    font-weight: bolder;
-}
-.comentarios-detalle .lista-comentarios .comentario div img{
-    border-radius: 50%;
-}
-
-.comentarios-detalle .lista-comentarios .comentario h6{
-    font-size: 13px;
-    margin-left: 2px !important;
-}
-.comentarios-detalle .lista-comentarios .comentario h6 a{
-    font-weight: bolder;
-    font-size: 15px;
+article.posteo h5 {
+    margin: 0px;
+    font-size: 120%;
     color: black;
-    text-decoration: none;
-    margin-right: 4px !important;
 }
 
+/* Información Principal*/
 
+div.infoPrincipal {
+    width: 100%;
+    padding: 2% 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid lightgray;
+}
 
+div.infoConstante {
+    
+    height: 35px;
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+img.imgUsuario {
+    height: 35px;
+    width: 35px;
+    border: solid rgb(150, 150, 150) 1px;
+    border-radius: 50%;
+}
+
+h3.usuario {
+    margin: 0px;
+    margin-left: 10px;
+}
+
+form.infoModificar {
+    height: 40px;
+    width: 50%;
+}
+
+div.botones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+button.boton {
+    height: 35px;
+    width: 35px;
+    background-color: rgb(255, 255, 255);
+    border: solid rgb(150, 150, 150) 1px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+button.boton:hover {
+    background-color: rgb(170, 8, 8);
+    cursor: pointer;
+}
+
+.boton i {
+    font-size: 120%;
+}
+
+/* Lista de comentarios */
+
+div.listaComentarios {
+    min-height: 50vh;
+    width: 100%;
+    padding: 2% 2%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;    
+}
+
+div.listaComentarios div.individual {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+div.listaComentarios h6 {
+    margin-top: 8px;
+    margin-bottom: 3px;
+}
+
+div.listaComentarios div.individual a#like {
+    max-width: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+div.listaComentarios div.individual p {
+    margin: 0px;
+    line-height: 1;
+    font-size: 80%;
+}
+
+/* Agregar comentario */
+
+div.agregarComentario {
+    width: 100%;
+    padding: 2% 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    border-top: solid rgb(158, 158, 158) 1px;
+}
+
+div.agregarComentario input.texto {
+    width: 50%;
+    font-size: 90%;
+    border: solid rgb(126, 125, 125) 1px;
+}
+
+div.agregarComentario input.comentar {
+    width: 46%;
+    font-size: 80%;
+}

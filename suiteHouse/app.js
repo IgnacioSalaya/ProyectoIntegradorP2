@@ -39,7 +39,7 @@ app.use(session({
 
 app.use(function(req, res, next){
   if(req.cookies.usuarioId != undefined && req.session.user == undefined){
-    db.User.findByPk(req.cookies.usuarioId)
+    db.Usuario.findByPk(req.cookies.usuarioId)
     .then(user => {
       req.session.user = user.email
       res.locals.user = req.session.user

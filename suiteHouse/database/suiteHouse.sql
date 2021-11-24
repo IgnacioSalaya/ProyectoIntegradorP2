@@ -19,11 +19,11 @@ CREATE TABLE users (
 -- DROP TABLE IF EXISTS users;
 
 INSERT INTO users VALUES 
-    (default,'usuario1@gmail.com','contraseña123','2000-01-01','SuiteHome','Suite','Home','perfil-suiteHome.png',501,105),
-    (default,'usuario2@gmail.com','contraseña123','2000-01-01','Brandan2','Brandan','Dos','perfil-Brandan.png',501,105),
-    (default,'usuario3@gmail.com','contraseña123','2000-01-01','Maira3','Maira','Tres','perfil-Maira.png',501,105),
-    (default,'usuario4@gmail.com','contraseña123','2000-01-01','Sol4','Sol','Cuatro','perfil-Sol.png',501,105),
-    (default,'usuario5@gmail.com','contraseña123','2000-01-01','Spencer5','Spencer','Cinco','perfil-Spencer.png',501,105)
+    (DEFAULT,'SuiteHome','Suite','Home','2000-11-24','suite-home@gmail.com','Contraseña123','perfil-SuiteHome.png','2021-09-03 11:20:00','2021-09-03 11:20:00'),
+	(DEFAULT,'BrandonElle','Brandon','Elle','2000-11-24','brandon-elle@gmail.com','Contraseña123','perfil-Brandon.png','2021-09-03 11:20:00','2021-09-03 11:20:00'),
+    (DEFAULT,'CarlaReyes','Carla','Reyes','2000-11-24','carla-reyes@gmail.com','Contraseña123','perfil-Carla.png','2021-09-03 11:20:00','2021-09-03 11:20:00'),
+    (DEFAULT,'SolSileoni','Sol','Sileoni','2000-11-24','sol-sileoni@gmail.com','Contraseña123','perfil-Sol.png','2021-09-03 11:20:00','2021-09-03 11:20:00'),
+    (DEFAULT,'SpencerFive','Spencer','Five','2000-11-24','spencer-five@gmail.com','Contraseña123','perfil-Spencer.png','2021-09-03 11:20:00','2021-09-03 11:20:00'),
 ; -- {iv:32caracteres,content:Xcaracteres}
 -- DELETE FROM usuarios WHERE id > 0;
 
@@ -41,17 +41,16 @@ CREATE TABLE posts (
 -- DROP TABLE IF EXISTS posts;
 
 INSERT INTO posts VALUES
-	(DEFAULT,'post-suiteHome.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',1),
-	(DEFAULT,'post-mascotaEnCasa.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',2),
-	(DEFAULT,'post-CocinaBlanca.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',3),
-	(DEFAULT,'post-compuEnCama.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',4),
-	(DEFAULT,'post-Estantes.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',5),
-	(DEFAULT,'post-suiteHomeDos.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',1),
-	(DEFAULT,'post-living.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',2),
-	(DEFAULT,'post-muebleBlanco.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',3),
-	(DEFAULT,'post-PlantaInterior.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',4),
-	(DEFAULT,'post-SillonModerno.png','Este es un pie de imagen muy largo. Me sirve para ver si el texto está truncado','2021-09-03 11:20:00',5)
-;
+	(DEFAULT,'post-SH-1.png','Bienvenid@ a SH','2021-09-03 11:20:00','2021-09-03 11:20:00',1),
+	(DEFAULT,'post-BE-1.png','post-BE-1','2021-09-03 11:20:00','2021-09-03 11:20:00',2),
+	(DEFAULT,'post-CR-1.png','post-CR-1','2021-09-03 11:20:00','2021-09-03 11:20:00',3),
+	(DEFAULT,'post-SS-1.png','post-SS-1','2021-09-03 11:20:00','2021-09-03 11:20:00',4),
+	(DEFAULT,'post-SF-1.png','post-SF-1','2021-09-03 11:20:00','2021-09-03 11:20:00',5),
+	(DEFAULT,'post-SH-2.png','Las puertas de tu hogar','2021-09-03 11:20:00','2021-09-03 11:20:00',1),
+	(DEFAULT,'post-BE-2.png','post-BE-2','2021-09-03 11:20:00','2021-09-03 11:20:00',2),
+	(DEFAULT,'post-CR-2.png','post-CR-2','2021-09-03 11:20:00','2021-09-03 11:20:00',3),
+	(DEFAULT,'post-SS-2.png','post-SS-2','2021-09-03 11:20:00','2021-09-03 11:20:00',4),
+	(DEFAULT,'post-SF-2.png','post-SF-2','2021-09-03 11:20:00','2021-09-03 11:20:00',5);
 -- DELETE FROM posts WHERE id > 0;
 
 

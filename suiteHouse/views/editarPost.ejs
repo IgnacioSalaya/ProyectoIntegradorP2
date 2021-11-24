@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<%- include('./partials/_head') %> 
+
+<body>
+    <%- include('./partials/_headerLogueado') %>
+        <div class="uk-section uk-section-small">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center" id="div-card">
+                <form action="/detallePost/modificar/<%= posteo.id %>" method="post" enctype="multipart/form-data"> <!-- Form -->
+                    <div class="uk-card uk-card-default uk-card-body uk-width-3-3@m">
+                        <h3>Editar posteo</h3>
+                        <p>Archivo actual: <%= posteo.imagenPosteo %></p>
+                        <div class="uk-margin">
+                            <div class="uk-column">
+                                <div id="cargaImg" uk-form-custom="target: true">
+                                    <input type="file" name="nuevaImagen" accept="image/png, .jpeg, .jpg, video/mp4, .mov, .avi"> <!-- Carga foto -->
+                                    <input class="uk-input uk-width-large" type="text" placeholder="Seleccione una foto desde su ordenador">
+                                </div>
+                                <div id="caja"
+                                    class="uk-container uk-container-small uk-flex uk-flex-middle uk-flex-center">
+                                    <div id="preview"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+                            <label class="uk-form-label" for="form-stacked-text">Pie de foto</label>
+                            <div class="uk-column">
+                                <input class="uk-input uk-width-large" name="piePublicacion" type="text" placeholder="<%= posteo.piePublicacion %>"> <!-- Pie de foto -->
+                            </div>
+                        </div>
+                        <div class="uk-margin">
+                            <div class="uk-controls uk-flex uk-flex-around">
+                                <button id="borrar" class="uk-button uk-button-danger uk-width-small" type="reset"><span
+                                        uk-icon="trash"></span></button>
+                                <button class="uk-button uk-button-primary uk-width-small">Editar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    <%- include('./partials/_footer') %> 
+</body>
+</html>

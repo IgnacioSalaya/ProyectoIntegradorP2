@@ -1,12 +1,16 @@
 # Ignorar modulos, están en package.json (dependencies)
-/node_modules
+
+/node_modules/
 
 # Archivos macOS
+
 .DS_Store
 
 # Ignorar config.js por la contraseña
-/database/config
+
+/database/config/config.js
 
 # Ignorar datos locales
-/public/posteos
-/public/foto_perfil_usuarios
+
+/public/images/posteos
+/public/images/foto_perfil_usuarios
