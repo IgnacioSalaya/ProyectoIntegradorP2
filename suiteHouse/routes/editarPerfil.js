@@ -22,6 +22,6 @@ const upload = multer({
 /* GET home page. */
 router.get('/', usuariosController.mostrarPerfil);
 
-router.post('/', upload.single('imagenPerfil'), usuariosController.editarPerfil);
+// router.post('/', upload.single('imagenPerfil'), usuariosController.editarPerfil);
 
 module.exports = router;

@@ -1,19 +1,40 @@
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
 const Usuario = db.Usuario;
-const Posteos = db.Posteo;
+const Comentario = db.Comentario
 
-// const usuarios = require('../data/usuarios');
-// const posteos = require('../data/posteos');
-// const comentarios = require('../data/comentarios');
+const expresionesRegex = {
+    nombre: /^[a-zA-ZÁ-ÿ\s]{1,40}$/,
+    apellido: /^[a-zA-ZÁ-ÿ\s]{1,40}$/,
+    nombreUsuario: /^[a-zA-Z0-9]*(!\s)*$/,
+    email: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+    contrasenia: /(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/
+}
 
 const usuariosController = {
-    detalleUsuario: (req, res) => {
+    detalleUsuario: (req, res) => {  
+        Usuario.findOne({
+            where: {'id': req.params.id},
+            include: [
+                {association: 'posteos_usuario'}
+            ]
+        })
+        .then((data) => {
+            if(data) {
+                res.render('detalleUsuario', {style: 'detalleUsuario', usuario: data});
+            } else {
+                res.send('No se ha encontrado el usuario solicitado');
+                // res.redirect('/');
+            }
+        })
+        .catch((err) => {
+            return res.send(err);
+        })
 
     },
     miPerfil: (req, res) => { //falta modificar vista
         if(req.session.user === undefined) {
-            return res.redirect('/');
+            res.redirect('/login');
         } else {
             Usuario.findOne({
                 where: {'id': req.session.user.id},
@@ -22,11 +43,11 @@ const usuariosController = {
                 ]
             })
             .then((data) => {
-                delete data.contrasenia
-                return res.render('miPerfil', {style: 'miPerfil', usuario: data})
+                data.contrasenia = undefined
+                res.render('miPerfil', {style: 'miPerfil', usuario: data})
             })
             .catch((err) => {
-                return res.send(err);
+                res.send(err);
             })
         } 
     },
@@ -52,30 +73,45 @@ const usuariosController = {
         .then((data) => {
             
             if(data) {
-                res.send('Página en reparación')
-                // Usuario.update({
-                //     imagenPerfil: req.file.filename,
-                //     nombreUsuario: req.body.nombreUsuario,
-                //     nombre: req.body.nombre,
-                //     apellido: req.body.apellido,
-                //     email: req.body.email,
-                //     fecNac: req.body.fecNac,
-                //     contrasenia: contraseniaNuevaEncriptada
-                // },
-                // {
-                //     where: {'id': req.session.user.id}
-                // })
-                // .then(data => {
-                //     fs.unlink('./' + data.imagenPerfil)
-                //     .then(() => {
-                //     }).catch(err => {
-                //         return res.send(err);
-                //     })
-                //     res.redirect("/editarPerfil")
-                // })
-                // .catch((err) => {
-                //     return res.send(err);
-                // })
+                let nombreActualizado
+                let apellidoActualizado
+                let fecNacActualizada
+                let imagenActualizada
+                if(req.body.nombre !== data.nombre) {
+                    nombreActualizado = req.body.nombre
+                } else {
+                    nombreActualizado = data.nombre
+                }
+                if(req.body.apellido !== data.apellido) {
+                    apellidoActualizado = req.body.apellido
+                } else {
+                    apellidoActualizado = data.apellido
+                }
+                if(req.body.fecNac !== data.fecNac) {
+                    fecNacActualizada = req.body.fecNac
+                } else {
+                    fecNacActualizada = data.fecNac
+                }
+                if(req.file.filename) {
+                    imagenActualizada = req.file.filename
+                } else {
+                    imagenActualizada = data.imagenPerfil
+                }
+                Usuario.update({
+                    imagenPerfil: imagenActualizada,
+                    nombre: nombreActualizado,
+                    apellido: apellidoActualizado,
+                    fecNac: fecNacActualizada,
+                },
+                {
+                    where: {'id': req.session.user.id}
+                })
+                .then(data => {
+                    res.redirect("/")
+                })
+                .catch((err) => {
+                    return res.send(err);
+                })
 
             } else {
                 res.send('Usuario no encontrado')
@@ -101,17 +137,16 @@ const usuariosController = {
         .then(data => {
             if(data) {
                 if(bcrypt.compareSync(req.body.contrasenia, data.contrasenia)){
-                    delete data.contrasenia;
                     req.session.user = data;
                     if(req.body.recordarme){
                         res.cookie('usuarioId', data.id, {maxAge: 1000 * 60 * 30})
                     }
                     res.redirect('/');
                 } else {
-                    res.send('Contraseña incorrecta') // arreglar manejo de errores
+                    res.send('Contraseña incorrecta')
                 }
             } else {
-                res.send('No se ha encontrado este usuario') // arreglar manejo de errores
+                res.send('No se ha encontrado este usuario')
             }
         })
         .catch(err => {
@@ -131,14 +166,6 @@ const usuariosController = {
         }
     },
     nuevoUsuario: (req, res, next) => {
-
-        const expresionesRegex = {
-            nombre: /^[a-zA-ZÁ-ÿ\s]{1,40}$/,
-            apellido: /^[a-zA-ZÁ-ÿ\s]{1,40}$/,
-            nombreUsuario: /^[a-zA-Z0-9]*(!\s)*$/,
-            email: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-            contrasenia: /(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/
-        }
 
         let nombreUsuario
         if(expresionesRegex.nombreUsuario.test(req.body.nombreUsuario)) {
@@ -220,7 +247,7 @@ const usuariosController = {
             ]
         })
         .then((data) => {
-            delete data.contrasenia
+            data.contrasenia = undefined
             if(data.createdAt < (Date.now() - 1000) ) {
                 return res.redirect('/registrarse')
             } else {

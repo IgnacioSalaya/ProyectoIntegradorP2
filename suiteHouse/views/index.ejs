@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./partials/_head') %> <!-- no olvidar la variable style del head -->
+  <%- include('./partials/_head') %>
   <body>
       <% if(user != undefined) { %>
         <%- include('./partials/_headerLogueado')%>
@@ -51,18 +51,7 @@
                             </li>
                           <% } %>
                         </ul>
-                        <button onclick="show()">Ver más</button>
-                      </div>
-                      <div class="comentarios-xl" hidden>
-                        <ul>
-                          <% data.comentarios_posteo.forEach((data) => { %>
-                            <li>
-                              <a href="/detalleUsuario/<%= data.usuario_comentario.usuarioId %>"><%= data.usuario_comentario.nombreUsuario %></a>
-                              <p><%= data.comentario %></p>
-                            </li>
-                          <% }) %>
-                        </ul>
-                        <button onclick="hide()">Ver menos</button>
+                        <button><a href="/detallePost/<%= data.id %>">Ver más</a></button>
                       </div>
                     <% } else { %>
                       <p>¡Aún no hay comentarios</p>
