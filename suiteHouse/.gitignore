@@ -9,8 +9,3 @@
 # Ignorar config.js por la contraseña
 
 /database/config/config.js
-
-# Ignorar datos locales
-
-/public/images/posteos
-/public/images/foto_perfil_usuarios
