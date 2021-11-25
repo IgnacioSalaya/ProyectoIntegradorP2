@@ -44,14 +44,23 @@
                     <% if(data.comentarios_posteo.length > 0) { %>
                       <div class="comentarios-xs">
                         <ul>
-                          <% for(let i = 0; i < 2; i++) { %>
-                            <li>
-                              <a href="/detalleUsuario/<%= data.comentarios_posteo[i].usuario_comentario.usuarioId %>"><%= data.comentarios_posteo[i].usuario_comentario.nombreUsuario %></a>
-                              <p><%= data.comentarios_posteo[i].comentario %></p>
-                            </li>
+                          <% if(data.comentarios_posteo.length === 1) { %>
+                            <% for(let i = 0; i < 1; i++) { %>
+                              <li>
+                                <a href="/detalleUsuario/<%= data.comentarios_posteo[i].usuario_comentario.usuarioId %>"><%= data.comentarios_posteo[i].usuario_comentario.nombreUsuario %></a>
+                                <p><%= data.comentarios_posteo[i].comentario %></p>
+                              </li>
+                            <% } %>
+                          <% } else if (data.comentarios_posteo.length >= 2) { %>
+                            <% for(let i = 0; i < 2; i++) { %>
+                              <li>
+                                <a href="/detalleUsuario/<%= data.comentarios_posteo[i].usuario_comentario.usuarioId %>"><%= data.comentarios_posteo[i].usuario_comentario.nombreUsuario %></a>
+                                <p><%= data.comentarios_posteo[i].comentario %></p>
+                              </li>
+                            <% } %>
+                            <button><a href="/detallePost/<%= data.id %>">Ver más</a></button>
                           <% } %>
                         </ul>
-                        <button><a href="/detallePost/<%= data.id %>">Ver más</a></button>
                       </div>
                     <% } else { %>
                       <p>¡Aún no hay comentarios</p>

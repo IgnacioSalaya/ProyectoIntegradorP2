@@ -4,25 +4,11 @@
 <body>
     <%- include('./partials/_headerLogueado')%>
     <div class="uk-section">
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="/editarPerfil/edit" method="post" enctype="multipart/form-data">
             <div class="uk-container uk-container-small uk-flex uk-flex-column uk-flex-middle uk-flex-center">
                 <div id="image" uk-form-custom="target: true">
-                    <input type="file" id="imagenPerfil" accept="image/png, .jpeg, .jpg, video/mp4, .mov, .avi">
                     <img src="/images/foto_perfil_usuarios/<%= usuario.imagenPerfil %> " alt="" class="foto-perfil">
-                </div>
-            </div>
-            <div id="caja-contenedora-superpuesta" hidden>
-                <div id="caja-contenedora-superpuesta-interna">
-                    <div id="editor"></div>
-                    <canvas id="preview"></canvas>
-                    <div class="uk-margin">
-                        <div id="botones-foto" class="uk-form-controls uk-flex uk-flex-around">
-                            <button type="button" id="button-close" class="uk-icon-button uk-margin-small-right uk-button-danger"><span
-                                    uk-icon="close"></span></button>
-                            <button type="button" id="button-check" class="uk-icon-button uk-margin-small-right uk-button-primary"><span
-                                    uk-icon="check"></span></button>
-                        </div>
-                    </div>
+                    <input type="file" name="imagenPerfil" accept="image/png, .jpeg, .jpg, video/mp4, .mov, .avi">
                 </div>
             </div>
             <div class="uk-margin-top uk-flex uk-flex-around" id="caja">
@@ -31,7 +17,7 @@
                         <label class="uk-form-label" for="form-stacked-text">Nombre de usuario</label>
     
                         <div class="uk-form-controls">
-                            <input class="uk-input" id="form-stacked-text" type="text" name="nombreUsuario" placeholder="@<%= usuario.nombreUsuario %>">
+                            <input class="uk-input" id="form-stacked-text" type="text" name="nombreUsuario" placeholder="@<%= usuario.nombreUsuario %>" disabled>
                         </div>
                     </div>
                     <div class="uk-margin">
@@ -49,8 +35,7 @@
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-stacked-text">Email</label>
                         <div class="uk-form-controls">
-                            <input class="uk-input" id="form-stacked-text" type="text" name="email" placeholder="<%= usuario.email %>"
-                                >
+                            <input class="uk-input" id="form-stacked-text" type="text" name="email" placeholder="<%= usuario.email %>" disabled>
                         </div>
                     </div>
                     <div class="uk-margin">
@@ -65,19 +50,19 @@
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-stacked-text">Contraseña actual</label>
                         <div class="uk-form-password">
-                            <input class="uk-input" id="passwordA" type="password" name="contraseniaActual" required>
+                            <input class="uk-input" id="passwordA" type="password" name="contraseniaActual" disabled>
                         </div>
                     </div>
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-stacked-text">Nueva contraseña</label>
                         <div class="uk-form-password">
-                            <input class="uk-input" id="password1" type="password" name="nuevaContrasenia1" required>
+                            <input class="uk-input" id="password1" type="password" name="nuevaContrasenia1" disabled>
                         </div>
                     </div>
                     <div class="uk-margin">
                         <label class="uk-form-label" for="form-stacked-text">Repetir contraseña</label>
                         <div class="uk-form-password">
-                            <input class="uk-input" id="password2" type="password" name="nuevaContrasenia2" required>
+                            <input class="uk-input" id="password2" type="password" name="nuevaContrasenia2" disabled>
                         </div>
     
                     </div>

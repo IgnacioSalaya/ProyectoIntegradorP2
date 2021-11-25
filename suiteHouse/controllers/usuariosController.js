@@ -73,46 +73,40 @@ const usuariosController = {
         .then((data) => {
             
             if(data) {
-                let nombreActualizado
-                let apellidoActualizado
-                let fecNacActualizada
-                let imagenActualizada
-                if(req.body.nombre !== data.nombre) {
-                    nombreActualizado = req.body.nombre
-                } else {
-                    nombreActualizado = data.nombre
+                
+                let name = data.nombre;
+                if(req.body.nombre) {
+                    name = req.body.nombre
                 }
-                if(req.body.apellido !== data.apellido) {
-                    apellidoActualizado = req.body.apellido
-                } else {
-                    apellidoActualizado = data.apellido
+                let lastName = data.apellido;
+                if(req.body.apellido) {
+                    lastName = req.body.apellido
                 }
-                if(req.body.fecNac !== data.fecNac) {
-                    fecNacActualizada = req.body.fecNac
-                } else {
-                    fecNacActualizada = data.fecNac
+                let dob = data.fecNac; // dob = date of birth
+                if(req.body.fecNac) {
+                    dob = req.body.fecNac
                 }
-                if(req.file.filename) {
-                    imagenActualizada = req.file.filename
-                } else {
-                    imagenActualizada = data.imagenPerfil
+                let foto = data.imagenPerfil; // tener en cuenta que no se actualiza la imagen en la vista
+                if(req.file) {
+                    foto = req.file.filename
                 }
+
                 Usuario.update({
-                    imagenPerfil: imagenActualizada,
-                    nombre: nombreActualizado,
-                    apellido: apellidoActualizado,
-                    fecNac: fecNacActualizada,
+                    nombre: name,
+                    apellido: lastName,
+                    fecNac: dob,
+                    imagenPerfil: foto
                 },
                 {
                     where: {'id': req.session.user.id}
                 })
                 .then(data => {
-                    res.redirect("/")
+                    res.redirect("/miPerfil")
                 })
                 .catch((err) => {
                     return res.send(err);
                 })
-
+                
             } else {
                 res.send('Usuario no encontrado')
             }

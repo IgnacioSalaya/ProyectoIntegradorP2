@@ -23,6 +23,6 @@ router.get('/modificar/:id', posteosController.vistaModificarPosteo);
 
 router.post('/:id', posteosController.nuevoComentario);
 router.post('/eliminar/:id', posteosController.eliminarPosteo);
-router.post('/modificar/:id', upload.single('nuevaImagen'), posteosController.modificarPosteo);
+router.post('/modificar/:id', upload.single('imagenPosteo'), posteosController.modificarPosteo);
 
 module.exports = router;
