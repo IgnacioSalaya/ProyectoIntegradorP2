@@ -4,12 +4,29 @@ const Usuario = db.Usuario;
 const Comentario = db.Comentario
 
 const expresionesRegex = {
-    nombre: /^[a-zA-ZÁ-ÿ\s]{1,40}$/,
-    apellido: /^[a-zA-ZÁ-ÿ\s]{1,40}$/,
-    nombreUsuario: /^[a-zA-Z0-9]*(!\s)*$/,
+    nombre: /^[a-zA-ZÁ-ÿ\s]{1,40}$/, 
+            // las barras diagonales derechas indican donde comienza y termina la 
+            // secuencia de la expresión regular. El simbolo "^" indica donde comienza nuestro patrón
+            // [a-zA-ZÁ-ÿ\s] significa que se aceptan caracteres del tipo minusculas, mayosculas y caracteres con tildes, según tabla ascii
+            // "\s" expresa la posibilidad de que se introduzcan espacios. Por último, las llaves indican
+            // la longitud esperada de la expresión
+    apellido: /^[a-zA-ZÁ-ÿ\s]{1,40}$/, // El patrón es el mismo para apellido
+    nombreUsuario: /^[a-zA-Z0-9]*(!\s)*$/, 
+            // Acá cambian los caracteres permitidos, [a-zA-Z0-9] indicia que solo se permiten minus, mayus y numeros
+            // *(!\s) expresa que no se permitiran espacios y "$" indica el fin de la expresión
     email: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+            // Este es más complejo, ahora nuestra secuencia indica un intervalo de caracteres (minus, mayus y numeros)
+            // y además, por extensión se definen otros caracteres posibles ".!#$%&’*+/=?^_`{|}~-", el corchete define el fin 
+            // de la secuencia parcial y pide que el simbolo arroba "@" sea obligatorio dentro del patrón, seguido de minus
+            // mayus y numeros. También, será necesario que se agregué, despues de esta pequeña secuencia, una terminación del tipo
+            // "." punto y algunos caracteres (minus, mayus y numeros) No define longitud min ni max.
     contrasenia: /(?=^.{8,32}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/
-}
+            // Este patrón nos exige que tenga entre 8 y 32 caracteres con la afirmación anticipada "?=", 
+            // nuevamente se realiza una afirmación anticipada para decir que  los digitos son permitidos. El simbolo "|" expresa un OR (operador lógico)
+            // Ahora, son permitidas las palabras W = word, tambien se niega la afirmacion anticipada para decir que no es posible agregar más líneas
+            // por último permite caracteres mayusculas y minusculas, antes de dar por finalizado el patrón
+} 
+            // ----> Tabla de referencias regex https://cheatography.com/davechild/cheat-sheets/regular-expressions/pdf/
 
 const usuariosController = {
     detalleUsuario: (req, res) => {  
@@ -162,7 +179,11 @@ const usuariosController = {
     nuevoUsuario: (req, res, next) => {
 
         let nombreUsuario
-        if(expresionesRegex.nombreUsuario.test(req.body.nombreUsuario)) {
+        if(expresionesRegex.nombreUsuario.test(req.body.nombreUsuario)) { 
+                // test es un método que poseen las expresiones regulares
+                // que devuelve true o false en función de que se confirme que
+                // la secuencia que introdujo el usuario corresponde con 
+                // la secuencia solicitada.
             nombreUsuario = req.body.nombreUsuario
         } else {
             res.send("El nombre de usuario no tiene la sintaxis correcta")
